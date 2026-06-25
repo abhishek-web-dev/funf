@@ -59,162 +59,308 @@
          HERO SECTION
     ============================================================ -->
     <section class="hero" id="home" aria-labelledby="hero-heading">
-      <div class="hero-bg-grid"></div>
-      <div class="hero-orb hero-orb-1"></div>
-      <div class="hero-orb hero-orb-2"></div>
+      <div class="hero-section-card">
+        <!-- Glowing background orbs inside the card -->
+        <div class="hero-card-glow-1"></div>
+        <div class="hero-card-glow-2"></div>
 
-      <div class="hero-container">
-        <div class="hero-content">
-          <div class="hero-badge">
-            <span class="badge-dot"></span>
-            Live Batches Starting Every Week
+        <div class="hero-grid-layout">
+          <!-- LEFT COLUMN -->
+          <div class="hero-left-col">
+            <div class="hero-batches-badge">
+              <span class="lightning-icon">⚡</span>
+              <span>Live Batches Starting Every Week</span>
+            </div>
+
+            <h1 id="hero-heading" class="hero-headline">
+              Master German<br />
+              <span class="gradient-text">with Expert Trainers</span>
+            </h1>
+
+            <p class="hero-sub-text">
+              Learn German from A1 to C2 with live online classes, speaking practice, Goethe examination preparation,
+              and comprehensive Germany career guidance.
+            </p>
+
+            <!-- Features Grid (2x2) -->
+            <div class="hero-features-grid">
+              <div class="feature-item-inline">
+                <div class="feature-icon-circle">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+                    <line x1="8" y1="21" x2="16" y2="21"></line>
+                    <line x1="12" y1="17" x2="12" y2="21"></line>
+                  </svg>
+                </div>
+                <div class="feature-text-inline">
+                  <strong>Live 60-minute</strong>
+                  <span>Interactive Sessions</span>
+                </div>
+              </div>
+              <div class="feature-item-inline">
+                <div class="feature-icon-circle">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <polygon points="1 6 1 22 8 18 16 22 23 18 23 2 16 6 8 2 1 6"></polygon>
+                    <line x1="8" y1="2" x2="8" y2="18"></line>
+                    <line x1="16" y1="6" x2="16" y2="22"></line>
+                  </svg>
+                </div>
+                <div class="feature-text-inline">
+                  <strong>Personalised Course</strong>
+                  <span>Roadmap</span>
+                </div>
+              </div>
+              <div class="feature-item-inline">
+                <div class="feature-icon-circle">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                    <circle cx="12" cy="7" r="4"></circle>
+                  </svg>
+                </div>
+                <div class="feature-text-inline">
+                  <strong>Personal Level</strong>
+                  <span>Assessment</span>
+                </div>
+              </div>
+              <div class="feature-item-inline">
+                <div class="feature-icon-circle">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                  </svg>
+                </div>
+                <div class="feature-text-inline">
+                  <strong>No Payment</strong>
+                  <span>Required Ever</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Stats Row -->
+            <div class="hero-stats-row">
+              <div class="hero-stat-card">
+                <div class="stat-icon-circle">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M22 10v6M2 10l10-5 10 5-10 5z"></path>
+                    <path d="M6 12v5c0 2 2 3 6 3s6-1 6-3v-5"></path>
+                  </svg>
+                </div>
+                <div class="stat-info">
+                  <div class="stat-number">5,000+</div>
+                  <div class="stat-label">Students Trained</div>
+                </div>
+              </div>
+              <div class="hero-stat-card">
+                <div class="stat-icon-circle">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <polygon
+                      points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2">
+                    </polygon>
+                  </svg>
+                </div>
+                <div class="stat-info">
+                  <div class="stat-number">4.9/5</div>
+                  <div class="stat-label">Average Rating</div>
+                </div>
+              </div>
+              <div class="hero-stat-card">
+                <div class="stat-icon-circle">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                    <circle cx="9" cy="7" r="4"></circle>
+                    <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                    <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                  </svg>
+                </div>
+                <div class="stat-info">
+                  <div class="stat-number">15+</div>
+                  <div class="stat-label">Expert Trainers</div>
+                </div>
+              </div>
+              <div class="hero-stat-card">
+                <div class="stat-icon-circle">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <circle cx="12" cy="12" r="6"></circle>
+                    <circle cx="12" cy="12" r="2"></circle>
+                  </svg>
+                </div>
+                <div class="stat-info">
+                  <div class="stat-number">95%</div>
+                  <div class="stat-label">Success Rate</div>
+                </div>
+              </div>
+            </div>
           </div>
 
-          <h1 id="hero-heading" class="hero-headline">
-            Master German<br />
-            <em>with Expert Trainers</em>
-          </h1>
 
-          <p class="hero-sub">
-            Learn German from A1 to C2 with live online classes, speaking practice,
-            Goethe examination preparation, and comprehensive Germany career guidance.
-          </p>
-
-          <div class="hero-ctas">
-            <a href="#demo-form" class="btn btn-primary btn-lg">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-                <rect x="3" y="4" width="18" height="18" rx="2" />
-                <line x1="16" y1="2" x2="16" y2="6" />
-                <line x1="8" y1="2" x2="8" y2="6" />
-                <line x1="3" y1="10" x2="21" y2="10" />
+          <!-- RIGHT COLUMN -->
+          <div class="hero-right-col">
+            <!-- Neon downward arrow decoration on top-right of form -->
+            <div class="neon-arrow-container">
+              <svg viewBox="0 0 100 100" fill="none" class="neon-arrow">
+                <path d="M10,10 Q80,20 60,80" stroke="#00d8ff" stroke-width="3" stroke-linecap="round"
+                  stroke-dasharray="4 4" />
+                <path d="M50,70 L60,80 L70,70" stroke="#00d8ff" stroke-width="3" stroke-linecap="round"
+                  stroke-linejoin="round" />
               </svg>
-              Book Free Demo
-            </a>
-            <a href="courses.html" class="btn btn-outline btn-lg">
-              Explore Courses
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-                <line x1="5" y1="12" x2="19" y2="12" />
-                <polyline points="12,5 19,12 12,19" />
-              </svg>
-            </a>
-          </div>
+            </div>
 
-          <!-- Floating Stats -->
-          <div class="hero-stats">
-            <div class="stat-card glass-card" data-animate="fade-up" data-delay="0">
-              <span class="stat-num" data-count="5000">0</span><span class="stat-plus">+</span>
-              <span class="stat-label">Students</span>
-            </div>
-            <div class="stat-card glass-card" data-animate="fade-up" data-delay="100">
-              <span class="stat-num" data-count="49" data-decimal="true">0</span>
-              <span class="stat-label">Rating ★</span>
-            </div>
-            <div class="stat-card glass-card" data-animate="fade-up" data-delay="200">
-              <span class="stat-num" data-count="15">0</span><span class="stat-plus">+</span>
-              <span class="stat-label">Trainers</span>
-            </div>
-            <div class="stat-card glass-card" data-animate="fade-up" data-delay="300">
-              <span class="stat-num" data-count="95">0</span><span class="stat-plus">%</span>
-              <span class="stat-label">Success Rate</span>
+            <div class="hero-form-card">
+              <div class="form-card-header">
+                <div class="form-header-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                    <line x1="16" y1="2" x2="16" y2="6"></line>
+                    <line x1="8" y1="2" x2="8" y2="6"></line>
+                    <line x1="3" y1="10" x2="21" y2="10"></line>
+                  </svg>
+                </div>
+                <div class="form-header-title">
+                  <h3>Register for Free Demo</h3>
+                  <p>Fill in your details. Our team will connect with you shortly.</p>
+                </div>
+              </div>
+
+              <form id="heroDemoForm" class="hero-demo-form" novalidate>
+                <div class="input-group-wrapper">
+                  <span class="input-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                      <circle cx="12" cy="7" r="4"></circle>
+                    </svg>
+                  </span>
+                  <input type="text" id="hero-name" name="name" placeholder="Full Name *" required />
+                  <span class="field-error-msg" id="hero-name-error"></span>
+                </div>
+
+                <div class="input-group-wrapper">
+                  <span class="input-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                      <polyline points="22,6 12,13 2,6"></polyline>
+                    </svg>
+                  </span>
+                  <input type="email" id="hero-email" name="email" placeholder="Email Address *" required />
+                  <span class="field-error-msg" id="hero-email-error"></span>
+                </div>
+
+                <div class="input-group-wrapper">
+                  <span class="input-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <path
+                        d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z">
+                      </path>
+                    </svg>
+                  </span>
+                  <input type="tel" id="hero-phone" name="phone" placeholder="Phone Number *" required />
+                  <span class="field-error-msg" id="hero-phone-error"></span>
+                </div>
+
+                <div class="input-group-wrapper select-wrapper">
+                  <span class="input-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <line x1="18" y1="20" x2="18" y2="10"></line>
+                      <line x1="12" y1="20" x2="12" y2="4"></line>
+                      <line x1="6" y1="20" x2="6" y2="14"></line>
+                    </svg>
+                  </span>
+                  <select id="hero-level" name="level">
+                    <option value="">Current German Level</option>
+                    <option value="none">Complete Beginner (No German)</option>
+                    <option value="a1">A1 – Beginner</option>
+                    <option value="a2">A2 – Elementary</option>
+                    <option value="b1">B1 – Intermediate</option>
+                    <option value="b2">B2 – Upper Intermediate</option>
+                    <option value="c1">C1 – Advanced</option>
+                    <option value="c2">C2 – Mastery</option>
+                  </select>
+                </div>
+
+                <button type="submit" class="hero-form-submit-btn">
+                  <span>Book My Free Demo Class</span>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                    <polyline points="12,5 19,12 12,19"></polyline>
+                  </svg>
+                </button>
+              </form>
+
+              <!-- Form bottom trust badges -->
+              <div class="hero-form-badges">
+                <div class="form-badge-item">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="badge-icon">
+                    <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                    <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+                  </svg>
+                  <span>100% Free</span>
+                </div>
+                <div class="form-badge-item">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="badge-icon">
+                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                  </svg>
+                  <span>Secure & Private</span>
+                </div>
+                <div class="form-badge-item">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="badge-icon">
+                    <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                    <circle cx="9" cy="7" r="4"></circle>
+                    <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                    <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                  </svg>
+                  <span>Expert Guidance</span>
+                </div>
+              </div>
             </div>
           </div>
         </div>
 
-        <!-- Hero Visual -->
-        <div class="hero-visual">
-          <div class="hero-image-frame">
-            <div class="trainer-grid">
-              <div class="trainer-card trainer-card-1 glass-card">
-                <div class="trainer-avatar" aria-hidden="true">
-                  <div class="avatar-placeholder">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                      <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
-                      <circle cx="12" cy="7" r="4" />
-                    </svg>
-                  </div>
-                </div>
-                <div class="trainer-info">
-                  <strong>Dr. Priya Mehta</strong>
-                  <span>B2 · C1 Specialist</span>
-                </div>
-                <div class="trainer-badge">🇩🇪 Certified</div>
-              </div>
-
-              <div class="trainer-card trainer-card-2 glass-card">
-                <div class="trainer-avatar" aria-hidden="true">
-                  <div class="avatar-placeholder ap2">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                      <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
-                      <circle cx="12" cy="7" r="4" />
-                    </svg>
-                  </div>
-                </div>
-                <div class="trainer-info">
-                  <strong>Rahul Sharma</strong>
-                  <span>A1 · A2 Expert</span>
-                </div>
-                <div class="trainer-badge">🎓 Goethe</div>
-              </div>
-
-              <div class="trainer-card trainer-card-3 glass-card">
-                <div class="trainer-avatar" aria-hidden="true">
-                  <div class="avatar-placeholder ap3">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                      <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
-                      <circle cx="12" cy="7" r="4" />
-                    </svg>
-                  </div>
-                </div>
-                <div class="trainer-info">
-                  <strong>Ananya Roy</strong>
-                  <span>B1 · B2 Trainer</span>
-                </div>
-                <div class="trainer-badge">✈️ Germany</div>
-              </div>
-
-              <!-- Central Feature -->
-              <div class="hero-center-card glass-card">
-                <div class="center-flag">🇩🇪</div>
-                <p class="center-text">Live Online<br /><strong>German Classes</strong></p>
-                <div class="live-indicator">
-                  <span class="live-dot"></span> Live Now
-                </div>
-              </div>
-            </div>
-
-            <!-- Floating tags -->
-            <div class="float-tag float-tag-1 glass-card">
-              <span>📜</span> Goethe Certified
-            </div>
-            <div class="float-tag float-tag-2 glass-card">
-              <span>🎯</span> A1 → C2
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Scroll ticker -->
-      <div class="hero-ticker" aria-hidden="true">
-        <div class="ticker-track">
-          <span>A1 Beginner</span><span class="ticker-dot">✦</span>
-          <span>A2 Elementary</span><span class="ticker-dot">✦</span>
-          <span>B1 Intermediate</span><span class="ticker-dot">✦</span>
-          <span>B2 Upper Intermediate</span><span class="ticker-dot">✦</span>
-          <span>C1 Advanced</span><span class="ticker-dot">✦</span>
-          <span>C2 Mastery</span><span class="ticker-dot">✦</span>
-          <span>Goethe Exam Prep</span><span class="ticker-dot">✦</span>
-          <span>Germany Career Guidance</span><span class="ticker-dot">✦</span>
-          <span>Free Demo Class</span><span class="ticker-dot">✦</span>
-          <!-- duplicate for seamless loop -->
-          <span>A1 Beginner</span><span class="ticker-dot">✦</span>
-          <span>A2 Elementary</span><span class="ticker-dot">✦</span>
-          <span>B1 Intermediate</span><span class="ticker-dot">✦</span>
-          <span>B2 Upper Intermediate</span><span class="ticker-dot">✦</span>
-          <span>C1 Advanced</span><span class="ticker-dot">✦</span>
-          <span>C2 Mastery</span><span class="ticker-dot">✦</span>
-          <span>Goethe Exam Prep</span><span class="ticker-dot">✦</span>
-          <span>Germany Career Guidance</span><span class="ticker-dot">✦</span>
-          <span>Free Demo Class</span><span class="ticker-dot">✦</span>
+        <!-- BOTTOM NAVIGATION ROW -->
+        <div class="hero-bottom-tabbar">
+          <a href="courses.html#a1" class="bottom-tab-link">
+            <span class="tab-icon font-icon">A1</span>
+            <span class="tab-label">Beginner</span>
+          </a>
+          <a href="courses.html#a2" class="bottom-tab-link">
+            <span class="tab-icon font-icon">A2</span>
+            <span class="tab-label">Elementary</span>
+          </a>
+          <a href="courses.html#b1" class="bottom-tab-link">
+            <span class="tab-icon font-icon">B1</span>
+            <span class="tab-label">Intermediate</span>
+          </a>
+          <a href="courses.html#b2" class="bottom-tab-link">
+            <span class="tab-icon font-icon">B2</span>
+            <span class="tab-label">Upper Intermediate</span>
+          </a>
+          <a href="courses.html#c1" class="bottom-tab-link">
+            <span class="tab-icon font-icon">C1</span>
+            <span class="tab-label">Advanced</span>
+          </a>
+          <a href="courses.html#c2" class="bottom-tab-link">
+            <span class="tab-icon font-icon">C2</span>
+            <span class="tab-label">Mastery</span>
+          </a>
+          <a href="#goethe" class="bottom-tab-link">
+            <span class="tab-icon svg-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                <polyline points="14 2 14 8 20 8"></polyline>
+                <line x1="16" y1="13" x2="8" y2="13"></line>
+                <line x1="16" y1="17" x2="8" y2="17"></line>
+                <polyline points="10 9 9 9 8 9"></polyline>
+              </svg>
+            </span>
+            <span class="tab-label">Goethe Exam Prep</span>
+          </a>
+          <a href="study-in-germany.html" class="bottom-tab-link">
+            <span class="tab-icon svg-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
+                <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
+              </svg>
+            </span>
+            <span class="tab-label">Career Guidance</span>
+          </a>
         </div>
       </div>
     </section>

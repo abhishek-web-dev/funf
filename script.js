@@ -213,81 +213,112 @@ function initFaqAccordion() {
  * - Prevent empty submissions
  */
 function initBookingForm() {
-  const form = document.getElementById('demoForm');
-  if (!form) return;
-
-  const nameInput = document.getElementById('name');
-  const emailInput = document.getElementById('email');
-  const phoneInput = document.getElementById('phone');
-  const levelInput = document.getElementById('level');
-
-  const nameError = document.getElementById('name-error');
-  const emailError = document.getElementById('email-error');
-  const phoneError = document.getElementById('phone-error');
-
-  form.addEventListener('submit', (e) => {
-    e.preventDefault();
-    let isValid = true;
-
-    // Reset error styling and messages
-    nameError.textContent = '';
-    emailError.textContent = '';
-    phoneError.textContent = '';
-    nameInput.classList.remove('error');
-    emailInput.classList.remove('error');
-    phoneInput.classList.remove('error');
-
-    // Validate Name
-    if (!nameInput.value.trim()) {
-      nameError.textContent = 'Full Name is required.';
-      nameInput.classList.add('error');
-      isValid = false;
+  const formsConfig = [
+    {
+      formId: 'demoForm',
+      nameId: 'name',
+      emailId: 'email',
+      phoneId: 'phone',
+      levelId: 'level',
+      nameErrorId: 'name-error',
+      emailErrorId: 'email-error',
+      phoneErrorId: 'phone-error'
+    },
+    {
+      formId: 'heroDemoForm',
+      nameId: 'hero-name',
+      emailId: 'hero-email',
+      phoneId: 'hero-phone',
+      levelId: 'hero-level',
+      nameErrorId: 'hero-name-error',
+      emailErrorId: 'hero-email-error',
+      phoneErrorId: 'hero-phone-error'
     }
+  ];
 
-    // Validate Email
-    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailInput.value.trim()) {
-      emailError.textContent = 'Email Address is required.';
-      emailInput.classList.add('error');
-      isValid = false;
-    } else if (!emailPattern.test(emailInput.value.trim())) {
-      emailError.textContent = 'Please enter a valid email address.';
-      emailInput.classList.add('error');
-      isValid = false;
-    }
+  formsConfig.forEach(cfg => {
+    const form = document.getElementById(cfg.formId);
+    if (!form) return;
 
-    // Validate Phone
-    const phonePattern = /^\+?[0-9\s\-]{8,20}$/;
-    if (!phoneInput.value.trim()) {
-      phoneError.textContent = 'Phone Number is required.';
-      phoneInput.classList.add('error');
-      isValid = false;
-    } else if (!phonePattern.test(phoneInput.value.trim())) {
-      phoneError.textContent = 'Please enter a valid phone number.';
-      phoneInput.classList.add('error');
-      isValid = false;
-    }
+    const nameInput = document.getElementById(cfg.nameId);
+    const emailInput = document.getElementById(cfg.emailId);
+    const phoneInput = document.getElementById(cfg.phoneId);
+    const levelInput = document.getElementById(cfg.levelId);
 
-    if (!isValid) return;
+    const nameError = document.getElementById(cfg.nameErrorId);
+    const emailError = document.getElementById(cfg.emailErrorId);
+    const phoneError = document.getElementById(cfg.phoneErrorId);
 
-    // Hide Form and show Form Success message (styled using existing css classes)
-    form.style.display = 'none';
-    
-    const formCard = form.closest('.demo-form-card');
-    const titleElement = formCard.querySelector('h3');
-    if (titleElement) titleElement.style.display = 'none';
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      let isValid = true;
 
-    // Insert success message container inside formCard
-    const successMsg = document.createElement('div');
-    successMsg.className = 'form-success-msg show';
-    successMsg.innerHTML = `
-      <div class="success-icon" style="color: var(--cyan); font-size: 3rem; margin-bottom: 1rem;">✓</div>
-      <h4 style="font-size: 1.25rem; font-weight: 700; margin-bottom: 0.5rem; color: var(--white);">Demo Class Booked!</h4>
-      <p style="font-size: 0.9375rem; color: rgba(255,255,255,0.85); line-height: 1.6;">
-        Thank you, <strong>${escapeHTML(nameInput.value.trim())}</strong>. A senior level advisor will reach out to you within 2 hours to confirm your assessment slot.
-      </p>
-    `;
-    formCard.appendChild(successMsg);
+      // Reset error styling and messages
+      if (nameError) nameError.textContent = '';
+      if (emailError) emailError.textContent = '';
+      if (phoneError) phoneError.textContent = '';
+      if (nameInput) nameInput.classList.remove('error');
+      if (emailInput) emailInput.classList.remove('error');
+      if (phoneInput) phoneInput.classList.remove('error');
+
+      // Validate Name
+      if (nameInput && !nameInput.value.trim()) {
+        if (nameError) nameError.textContent = 'Full Name is required.';
+        nameInput.classList.add('error');
+        isValid = false;
+      }
+
+      // Validate Email
+      const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (emailInput && !emailInput.value.trim()) {
+        if (emailError) emailError.textContent = 'Email Address is required.';
+        emailInput.classList.add('error');
+        isValid = false;
+      } else if (emailInput && !emailPattern.test(emailInput.value.trim())) {
+        if (emailError) emailError.textContent = 'Please enter a valid email address.';
+        emailInput.classList.add('error');
+        isValid = false;
+      }
+
+      // Validate Phone
+      const phonePattern = /^\+?[0-9\s\-]{8,20}$/;
+      if (phoneInput && !phoneInput.value.trim()) {
+        if (phoneError) phoneError.textContent = 'Phone Number is required.';
+        phoneInput.classList.add('error');
+        isValid = false;
+      } else if (phoneInput && !phonePattern.test(phoneInput.value.trim())) {
+        if (phoneError) phoneError.textContent = 'Please enter a valid phone number.';
+        phoneInput.classList.add('error');
+        isValid = false;
+      }
+
+      if (!isValid) return;
+
+      // Hide Form and show Form Success message (styled using existing css classes)
+      form.style.display = 'none';
+      
+      const formCard = form.closest('.demo-form-card') || form.closest('.hero-form-card');
+      const titleElement = formCard.querySelector('h3') || formCard.querySelector('.form-card-header');
+      if (titleElement) titleElement.style.display = 'none';
+
+      // Insert success message container inside formCard
+      const isHeroForm = form.id === 'heroDemoForm';
+      const textColor = isHeroForm ? 'var(--text-body)' : 'rgba(255,255,255,0.85)';
+      const titleColor = isHeroForm ? 'var(--text-primary)' : 'var(--white)';
+
+      const successMsg = document.createElement('div');
+      successMsg.className = 'form-success-msg show';
+      successMsg.style.textAlign = 'center';
+      successMsg.style.padding = '1.5rem 0';
+      successMsg.innerHTML = `
+        <div class="success-icon" style="color: var(--cyan); font-size: 3rem; margin-bottom: 1rem;">✓</div>
+        <h4 style="font-size: 1.25rem; font-weight: 700; margin-bottom: 0.5rem; color: ${titleColor};">Demo Class Booked!</h4>
+        <p style="font-size: 0.9375rem; color: ${textColor}; line-height: 1.6;">
+          Thank you, <strong>${escapeHTML(nameInput.value.trim())}</strong>. A senior level advisor will reach out to you within 2 hours to confirm your assessment slot.
+        </p>
+      `;
+      formCard.appendChild(successMsg);
+    });
   });
 
   function escapeHTML(str) {
