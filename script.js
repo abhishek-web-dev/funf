@@ -4,15 +4,25 @@
  */
 
 document.addEventListener('DOMContentLoaded', () => {
-  initNavbar();
-  initCounters();
-  initScrollReveal();
-  initFaqAccordion();
-  initBookingForm();
-  initBackToTop();
-  initLevelFolders();
-  initAdvisorForm();
-  initVideoTestimonials();
+  const safeInit = (name, fn) => {
+    try {
+      fn();
+    } catch (e) {
+      console.warn(`[FÜNF JS Warning] Failed to initialize ${name}:`, e.message);
+    }
+  };
+
+  safeInit('Navbar', initNavbar);
+  safeInit('Counters', initCounters);
+  safeInit('ScrollReveal', initScrollReveal);
+  safeInit('FaqAccordion', initFaqAccordion);
+  safeInit('BookingForm', initBookingForm);
+  safeInit('BackToTop', initBackToTop);
+  safeInit('LevelFolders', initLevelFolders);
+  safeInit('AdvisorForm', initAdvisorForm);
+  safeInit('VideoTestimonials', initVideoTestimonials);
+  safeInit('SyllabusModal', initSyllabusModal);
+  safeInit('CourseSelection', initCourseSelection);
 });
 
 /**
@@ -378,10 +388,11 @@ function initLevelFolders() {
         panel.classList.remove('active');
       });
 
-      // Show target panel
+      // Show target panel and scroll to it
       const targetPanel = document.getElementById(`panel-${target}`);
       if (targetPanel) {
         targetPanel.classList.add('active');
+        targetPanel.scrollIntoView({ behavior: 'smooth', block: 'center' });
       }
     });
   });
@@ -626,5 +637,325 @@ function initVideoTestimonials() {
     const seconds = Math.floor(currentTime);
     const displaySec = seconds < 10 ? '0' + seconds : seconds;
     if (currentTimeTxt) currentTimeTxt.textContent = `0:${displaySec}`;
+  }
+}
+
+/**
+ * 10. Syllabus Data and Modal Controller
+ */
+const syllabusData = {
+  a1: {
+    title: "German A1 Course Syllabus (Beginner)",
+    subtitle: "Complete foundation course mapping to Goethe-Zertifikat A1 requirements.",
+    ctaText: "Enroll in A1 Beginner Course",
+    content: `
+      <h4>1. Core Communication Skills</h4>
+      <ul>
+        <li>Introduce yourself, friends, and family members.</li>
+        <li>Spell names, state phone numbers, and use German cardinal/ordinal numbers.</li>
+        <li>Ask for and give directions, and inquire about prices or times.</li>
+        <li>Write basic emails, text messages, and fill out standard registry forms.</li>
+      </ul>
+      <h4>2. Grammar Focus</h4>
+      <ul>
+        <li>Verb conjugation in Present Tense (Präsens) for regular/irregular verbs.</li>
+        <li>Sentence structure: Main clauses (Hauptsatz) and question forms (W-Fragen, Ja/Nein Fragen).</li>
+        <li>Cases: Nominative and Accusative declensions.</li>
+        <li>Definite, indefinite, and negative articles (der/die/das, ein/eine, kein/keine).</li>
+      </ul>
+      <h4>3. Main Vocabulary Themes</h4>
+      <ul>
+        <li>Greetings, family, occupations, food & beverages, hobbies, and shopping.</li>
+      </ul>
+      <h4>4. Course Books & Materials</h4>
+      <ul>
+        <li>Netzwerk neu A1 (Kursbuch + Arbeitsbuch) + Hueber intensive trainer.</li>
+      </ul>
+    `
+  },
+  a2: {
+    title: "German A2 Course Syllabus (Elementary)",
+    subtitle: "Elevate your fluency to standard everyday situations and basic routines.",
+    ctaText: "Enroll in A2 Elementary Course",
+    content: `
+      <h4>1. Core Communication Skills</h4>
+      <ul>
+        <li>Describe past activities, routines, and personal background.</li>
+        <li>Conduct basic shopping transactions and make appointments in German.</li>
+        <li>Understand simple advertisements, travel notices, and restaurant menus.</li>
+        <li>Write routine notes, letters, and emails regarding work or housing.</li>
+      </ul>
+      <h4>2. Grammar Focus</h4>
+      <ul>
+        <li>Past tense of helper verbs (haben/sein) and modal verbs (Präteritum).</li>
+        <li>Perfect tense (Perfekt) for active daily speech patterns.</li>
+        <li>The Dative case (Dativ) and dative personal pronouns.</li>
+        <li>Prepositions: Accusative, Dative, and two-way prepositions (Wechselpräpositionen).</li>
+      </ul>
+      <h4>3. Main Vocabulary Themes</h4>
+      <ul>
+        <li>Living spaces, daily routines, health & body, media & technology, and holidays.</li>
+      </ul>
+      <h4>4. Course Books & Materials</h4>
+      <ul>
+        <li>Netzwerk neu A2 (Kursbuch + Arbeitsbuch) + Goethe A2 practice papers.</li>
+      </ul>
+    `
+  },
+  b1: {
+    title: "German B1 Course Syllabus (Intermediate)",
+    subtitle: "The crucial visa and workplace entry level. Independent language usage.",
+    ctaText: "Enroll in B1 Intermediate Course",
+    content: `
+      <h4>1. Core Communication Skills</h4>
+      <ul>
+        <li>Handle most travel, school, and work situations in German-speaking countries.</li>
+        <li>Express hopes, dreams, goals, and provide reasoning for personal choices.</li>
+        <li>Deliver short structured oral presentations on familiar abstract topics.</li>
+        <li>Write comprehensive reviews, formal complaints, and motivational letters.</li>
+      </ul>
+      <h4>2. Grammar Focus</h4>
+      <ul>
+        <li>Subordinate clauses (dass, weil, wenn, obwohl, damit clauses).</li>
+        <li>Passive Voice (Passiv) in present and simple past.</li>
+        <li>Relative clauses and relative pronouns (Relativsätze).</li>
+        <li>Subjunctive II (Konjunktiv II) for polite requests and hypothetical scenarios.</li>
+      </ul>
+      <h4>3. Main Vocabulary Themes</h4>
+      <ul>
+        <li>Workplace environment, environment & climate, relationships, history, and education systems.</li>
+      </ul>
+      <h4>4. Course Books & Materials</h4>
+      <ul>
+        <li>Aspekte Neu B1 plus / Studio d B1 + FÜNF Exam-Simulator suite.</li>
+      </ul>
+    `
+  },
+  b2: {
+    title: "German B2 Course Syllabus (Upper-Intermediate)",
+    subtitle: "Professional readiness, nursing license pathway, and business operations.",
+    ctaText: "Enroll in B2 Upper-Int. Course",
+    content: `
+      <h4>1. Core Communication Skills</h4>
+      <ul>
+        <li>Follow complex technical discussions in your field of engineering or IT.</li>
+        <li>Speak fluently and spontaneously with native German speakers without strain.</li>
+        <li>Draft clear, well-structured text on a wide range of subjects.</li>
+        <li>Compare advantages and disadvantages of different proposals or arguments.</li>
+      </ul>
+      <h4>2. Grammar Focus</h4>
+      <ul>
+        <li>Noun-verb combinations (Nomen-Verb-Verbindungen).</li>
+        <li>Alternative passive structures (sein + zu + Infinitiv, -bar/-lich suffixes).</li>
+        <li>Advanced connectors (nicht nur... sondern auch, je... desto).</li>
+        <li>Subjunctive I (Konjunktiv I) for indirect speech.</li>
+      </ul>
+      <h4>3. Main Vocabulary Themes</h4>
+      <ul>
+        <li>Technical workflows, medical terms (for nurses), business presentations, and politics.</li>
+      </ul>
+      <h4>4. Course Books & Materials</h4>
+      <ul>
+        <li>Aspekte Neu B2 / Erkundungen B2 + Medical German modules (for nurses).</li>
+      </ul>
+    `
+  },
+  c1: {
+    title: "German C1 Course Syllabus (Advanced)",
+    subtitle: "Academic and executive level. Deep comprehension of advanced texts.",
+    ctaText: "Enroll in C1 Advanced Course",
+    content: `
+      <h4>1. Core Communication Skills</h4>
+      <ul>
+        <li>Understand a wide range of demanding, longer texts, and recognize implicit meaning.</li>
+        <li>Express ideas fluently and spontaneously without much obvious searching for expressions.</li>
+        <li>Use language flexibly and effectively for social, academic and professional purposes.</li>
+        <li>Produce clear, well-structured, detailed text on complex subjects.</li>
+      </ul>
+      <h4>2. Grammar Focus</h4>
+      <ul>
+        <li>Subjective modal verbs (Vermutungen).</li>
+        <li>Extended noun attributes (Erweiterte Partizipialattribute).</li>
+        <li>Sentence-connecting adverbs and nominal style versus verbal style.</li>
+        <li>Advanced particles and stylistic nuances.</li>
+      </ul>
+      <h4>3. Main Vocabulary Themes</h4>
+      <ul>
+        <li>Higher education, philosophy, science & research, globalization, and corporate culture.</li>
+      </ul>
+      <h4>4. Course Books & Materials</h4>
+      <ul>
+        <li>Erkundungen C1 / Hueber C1 Textbooks + TestDaF mock simulators.</li>
+      </ul>
+    `
+  },
+  c2: {
+    title: "German C2 Course Syllabus (Mastery)",
+    subtitle: "Bilingual competence. Near-native precision and complete integration.",
+    ctaText: "Enroll in C2 Mastery Course",
+    content: `
+      <h4>1. Core Communication Skills</h4>
+      <ul>
+        <li>Understand with ease virtually everything heard or read in German.</li>
+        <li>Summarize information from different spoken and written sources.</li>
+        <li>Reconstruct arguments and accounts in a coherent, polished presentation.</li>
+        <li>Express yourself spontaneously, very fluently and precisely, differentiating finer shades of meaning.</li>
+      </ul>
+      <h4>2. Grammar Focus</h4>
+      <ul>
+        <li>Complete mastery of all syntactic patterns in German.</li>
+        <li>Creative and rhetorical styling structures.</li>
+        <li>Advanced text cohesion, idioms, and stylistic variations.</li>
+        <li>High-level editorial translation structures.</li>
+      </ul>
+      <h4>3. Main Vocabulary Themes</h4>
+      <ul>
+        <li>Literature, legal documentation, political debate, linguistic research, and diplomacy.</li>
+      </ul>
+      <h4>4. Course Books & Materials</h4>
+      <ul>
+        <li>Hueber C2 books, literature extracts, and personalized executive materials.</li>
+      </ul>
+    `
+  }
+};
+
+function initSyllabusModal() {
+  const modal = document.getElementById('syllabusModal');
+  const closeBtn = document.getElementById('closeSyllabusModalBtn');
+  const backdrop = modal ? modal.querySelector('.syllabus-modal-backdrop') : null;
+  const syllabusButtons = document.querySelectorAll('.view-syllabus-btn');
+  
+  if (!modal || syllabusButtons.length === 0) return;
+
+  const modalTitle = document.getElementById('syllabus-modal-title');
+  const modalSubtitle = document.getElementById('syllabus-modal-subtitle');
+  const modalBody = document.getElementById('syllabusModalBody');
+  const modalCTA = document.getElementById('syllabusModalCTA');
+
+  // Open Modal function
+  const openModal = (level) => {
+    const data = syllabusData[level];
+    if (!data) return;
+
+    if (modalTitle) modalTitle.textContent = data.title;
+    if (modalSubtitle) modalSubtitle.textContent = data.subtitle;
+    if (modalBody) modalBody.innerHTML = data.content;
+    
+    if (modalCTA) {
+      modalCTA.textContent = data.ctaText;
+      modalCTA.setAttribute('href', '#advisor-form');
+      modalCTA.setAttribute('data-target-level', level); // Store level for pre-select logic
+    }
+
+    modal.classList.add('open');
+    modal.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+  };
+
+  // Close Modal function
+  const closeModal = () => {
+    modal.classList.remove('open');
+    modal.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+  };
+
+  // Add click listeners to level syllabus buttons
+  syllabusButtons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const level = btn.getAttribute('data-level');
+      if (level) openModal(level);
+    });
+  });
+
+  // Wire close actions
+  if (closeBtn) closeBtn.addEventListener('click', closeModal);
+  if (backdrop) backdrop.addEventListener('click', closeModal);
+
+  // Close on Escape Key
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && modal.classList.contains('open')) {
+      closeModal();
+    }
+  });
+
+  // Clicking CTA inside modal should close modal and auto-select
+  if (modalCTA) {
+    modalCTA.addEventListener('click', () => {
+      const level = modalCTA.getAttribute('data-target-level');
+      closeModal();
+      if (level) {
+        // Run select logic after a short delay so modal animation completes
+        setTimeout(() => {
+          selectTargetPathway(level);
+        }, 300);
+      }
+    });
+  }
+}
+
+/**
+ * 11. Form Pre-selection & Scroll-to Linker
+ */
+function initCourseSelection() {
+  const enrollButtons = document.querySelectorAll('.enroll-course-btn');
+  if (enrollButtons.length === 0) return;
+
+  enrollButtons.forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      e.preventDefault();
+      const level = btn.getAttribute('data-level');
+      if (level) {
+        selectTargetPathway(level);
+      }
+    });
+  });
+}
+
+function selectTargetPathway(level) {
+  const selectEl = document.getElementById('adv-pathway');
+  if (!selectEl) return;
+
+  const mapping = {
+    'a1': 'spousal',
+    'a2': 'a2-conversational',
+    'b1': 'ausbildung',
+    'b2': 'nurse',
+    'c1': 'student',
+    'c2': 'c2-mastery'
+  };
+
+  const targetValue = mapping[level.toLowerCase()];
+  if (targetValue) {
+    selectEl.value = targetValue;
+    
+    // Smooth scroll to advisor form
+    const formSection = document.getElementById('advisor-form');
+    if (formSection) {
+      formSection.scrollIntoView({ behavior: 'smooth' });
+    }
+
+    // Highlight the selection dropdown
+    selectEl.classList.add('pulse-highlight');
+    
+    // Add micro-feedback text
+    let feedback = document.getElementById('pathway-feedback-msg');
+    if (!feedback) {
+      feedback = document.createElement('span');
+      feedback.id = 'pathway-feedback-msg';
+      feedback.style.display = 'block';
+      feedback.style.fontSize = '0.8rem';
+      feedback.style.fontWeight = '600';
+      feedback.style.color = 'var(--warm-gold)';
+      feedback.style.marginTop = '0.5rem';
+      selectEl.parentNode.appendChild(feedback);
+    }
+    
+    feedback.textContent = `✓ Pre-selected option automatically based on your ${level.toUpperCase()} Course interest!`;
+
+    // Remove the highlight animation after 2.5 seconds
+    setTimeout(() => {
+      selectEl.classList.remove('pulse-highlight');
+    }, 2500);
   }
 }

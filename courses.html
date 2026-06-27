@@ -18,8 +18,8 @@
   <link
     href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap"
     rel="stylesheet" />
-  <link rel="stylesheet" href="style.css" />
-  <link rel="stylesheet" href="courses.css" />
+  <link rel="stylesheet" href="style.css?v=2" />
+  <link rel="stylesheet" href="courses.css?v=2" />
 </head>
 
 <body>
@@ -57,68 +57,215 @@
   <main>
 
     <!-- ============================================================
-         SECTION I: HERO – "Why Germany?" & Direct Career Pathways
+         SECTION I: HERO – Modern EdTech Hero layout
     ============================================================ -->
     <section class="courses-hero" id="hero" aria-labelledby="courses-hero-heading">
       <div class="hero-container">
         <div class="hero-text-content">
+          <nav class="breadcrumb-nav" aria-label="Breadcrumb">
+            <a href="index.html">Home</a>
+            <span class="breadcrumb-separator">/</span>
+            <span class="breadcrumb-active">Courses</span>
+          </nav>
+
           <div class="hero-tagline">
             <span class="tagline-dot"></span>
             Your Complete Germany Pathway
           </div>
+
           <h1 id="courses-hero-heading" class="hero-title-main">
             Your Future in Germany <br />
             <span>Starts with the Right Bridge</span>
           </h1>
+
           <p class="hero-paragraph-sub">
-            FÜNF is more than a language course. We are your official Germany transition partner, aligning intensive Goethe-certified German training with direct placement pathways for nurses, engineers, students, and professionals.
+            FÜNF is more than a language course. We are your official Germany transition partner, aligning intensive
+            Goethe-certified German training with direct placement pathways for nurses, engineers, students, and
+            professionals.
           </p>
 
-          <div class="hero-actions-container">
-            <a href="#levels" class="btn btn-primary btn-lg">Explore Career Levels</a>
-            <a href="#advisor-form" class="btn btn-outline btn-lg">Talk to a Germany Advisor</a>
-          </div>
-
-          <div class="hero-features-list">
-            <div class="hero-feature-item">
-              <span class="feature-icon">🇩🇪</span>
-              <span class="feature-text">Goethe & TELC Certified Standards</span>
-            </div>
-            <div class="hero-feature-item">
-              <span class="feature-icon">💼</span>
-              <span class="feature-text">Direct Job & Placement Matchmaking</span>
-            </div>
-            <div class="hero-feature-item">
-              <span class="feature-icon">🛡️</span>
-              <span class="feature-text">Full APS & Visa Process Support</span>
+          <!-- EdTech Search Box & Quick Tags -->
+          <div class="hero-search-container">
+            <form class="hero-search-form" onsubmit="event.preventDefault(); selectTargetPathway('b2');">
+              <span class="search-icon">🔍</span>
+              <input type="text" placeholder="Search courses e.g., A1, B2, Nursing pathway..."
+                aria-label="Search courses" />
+              <button type="submit" class="btn btn-primary">Search</button>
+            </form>
+            <div class="quick-category-pills">
+              <span class="quick-tag-label">Popular:</span>
+              <button class="quick-pill" onclick="selectTargetPathway('a1')">A1 Spousal</button>
+              <button class="quick-pill" onclick="selectTargetPathway('b2')">B2 Nursing</button>
+              <button class="quick-pill" onclick="selectTargetPathway('b1')">B1 Ausbildung</button>
             </div>
           </div>
         </div>
 
         <div class="hero-visual-container">
           <div class="visual-wrapper">
-            <div class="visual-img-frame">
-              <div class="visual-overlay"></div>
-              <!-- Simulated High-Quality Visual Display representing professional achievement in Germany -->
-              <div class="germany-scene-content">
-                <div class="scene-heading">Frankfurt am Main</div>
-                <div class="scene-avatar-group">
-                  <div class="scene-avatar">👨‍💻</div>
-                  <div class="scene-avatar-info">
-                    <strong>Amit Deshmukh</strong>
-                    <span>Systems Engineer, Munich</span>
-                  </div>
-                </div>
-                <div class="scene-stats-bubble">
-                  <span class="stat-bubble-number">€54k</span>
-                  <span class="stat-bubble-label">Avg. Starting Salary</span>
-                </div>
+
+
+            <!-- <div class="visual-info-card">
+              <div class="card-germany-badge">🇩🇪 Destination Germany</div>
+              <p class="card-quote">"The language was my entry ticket, but FÜNF's visa coaching and resume rebuilding
+                got me the engineering contract."</p>
+              <div class="card-author">— Amit, Software Architect</div>
+            </div> -->
+
+            <!-- Floating Statistics Cards Overlay -->
+            <!-- <div class="floating-stat-card card-enrolled">
+              <span class="f-stat-icon">👨‍🎓</span>
+              <div class="f-stat-text">
+                <strong>5,000+</strong>
+                <span>Enrolled Students</span>
               </div>
             </div>
-            <div class="visual-info-card">
-              <div class="card-germany-badge">🇩🇪 Destination Germany</div>
-              <p class="card-quote">"The language was my entry ticket, but FÜNF's visa coaching and resume rebuilding got me the engineering contract."</p>
-              <div class="card-author">— Amit, Software Architect</div>
+            <div class="floating-stat-card card-visa">
+              <span class="f-stat-icon">🏆</span>
+              <div class="f-stat-text">
+                <strong>98%</strong>
+                <span>Visa Success Rate</span>
+              </div>
+            </div>
+            <div class="floating-stat-card card-rating">
+              <span class="f-stat-icon">⭐</span>
+              <div class="f-stat-text">
+                <strong>5.0 Rating</strong>
+                <span>Goethe Certified Tutors</span>
+              </div>
+            </div> -->
+          </div>
+        </div>
+      </div>
+
+      <!-- Wave shape divider at the bottom of the hero -->
+      <div class="hero-wave-divider">
+        <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+          <path
+            d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V120H0V0C26.9,4.75,57.05,12.72,88.31,20.67,175,42.86,236.4,67.24,321.39,56.44Z"
+            class="shape-fill"></path>
+        </svg>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         SECTION II: CATEGORIES SECTION (Grid)
+    ============================================================ -->
+    <section class="categories-section" aria-labelledby="categories-heading">
+      <!-- Grid dot patterns on the left and right edges -->
+      <div class="dots-pattern dots-left" aria-hidden="true"></div>
+      <div class="dots-pattern dots-right" aria-hidden="true"></div>
+
+      <div class="section-container">
+        <div class="section-intro">
+          <div class="explore-paths-badge">
+            <span class="badge-icon">🧭</span> EXPLORE PATHS
+          </div>
+          <h2 id="categories-heading" class="section-main-title">
+            Select Your <span class="highlight-text">Relocation</span> Pathway
+          </h2>
+          <div class="subtitle-container">
+            <div class="plane-line-left" aria-hidden="true">
+              <span class="dashed-part"></span>
+              <span class="plane-part">✈</span>
+            </div>
+            <p class="section-subtitle-text">
+              Choose the target destination that aligns with your educational qualifications and career ambitions.
+            </p>
+            <div class="plane-line-right" aria-hidden="true">
+              <span class="plane-part">✈</span>
+              <span class="dashed-part"></span>
+            </div>
+          </div>
+        </div>
+
+        <div class="categories-grid">
+          <!-- Card 1 -->
+          <div class="category-card" onclick="selectTargetPathway('a1')">
+            <div class="cat-icon-wrapper">
+              <span class="cat-icon">🏠</span>
+            </div>
+            <h4>Spousal / Family Visa</h4>
+            <span class="cat-badge">A1 Required</span>
+            <div class="cat-arrow-circle" aria-hidden="true">
+              <span>→</span>
+            </div>
+          </div>
+          <!-- Card 2 -->
+          <div class="category-card" onclick="selectTargetPathway('a2')">
+            <div class="cat-icon-wrapper">
+              <span class="cat-icon">🤝</span>
+            </div>
+            <h4>FSJ / Voluntary Service</h4>
+            <span class="cat-badge">A2 Required</span>
+            <div class="cat-arrow-circle" aria-hidden="true">
+              <span>→</span>
+            </div>
+          </div>
+          <!-- Card 3 -->
+          <div class="category-card" onclick="selectTargetPathway('b1')">
+            <div class="cat-icon-wrapper">
+              <span class="cat-icon">🔧</span>
+            </div>
+            <h4>Vocational Ausbildung</h4>
+            <span class="cat-badge">B1 Required</span>
+            <div class="cat-arrow-circle" aria-hidden="true">
+              <span>→</span>
+            </div>
+          </div>
+          <!-- Card 4 -->
+          <div class="category-card" onclick="selectTargetPathway('b2')">
+            <div class="cat-icon-wrapper">
+              <span class="cat-icon">👩‍⚕️</span>
+            </div>
+            <h4>Nursing Placements</h4>
+            <span class="cat-badge">B2 Required</span>
+            <div class="cat-arrow-circle" aria-hidden="true">
+              <span>→</span>
+            </div>
+          </div>
+          <!-- Card 5 -->
+          <div class="category-card" onclick="selectTargetPathway('b2')">
+            <div class="cat-icon-wrapper">
+              <span class="cat-icon">💻</span>
+            </div>
+            <h4>Engineering & IT</h4>
+            <span class="cat-badge">B1/B2 Required</span>
+            <div class="cat-arrow-circle" aria-hidden="true">
+              <span>→</span>
+            </div>
+          </div>
+          <!-- Card 6 -->
+          <div class="category-card" onclick="selectTargetPathway('c1')">
+            <div class="cat-icon-wrapper">
+              <span class="cat-icon">🎓</span>
+            </div>
+            <h4>University Studies</h4>
+            <span class="cat-badge">B1/C1 Required</span>
+            <div class="cat-arrow-circle" aria-hidden="true">
+              <span>→</span>
+            </div>
+          </div>
+          <!-- Card 7 -->
+          <div class="category-card" onclick="selectTargetPathway('c1')">
+            <div class="cat-icon-wrapper">
+              <span class="cat-icon">🩺</span>
+            </div>
+            <h4>Medical Approbation</h4>
+            <span class="cat-badge">C1 Required</span>
+            <div class="cat-arrow-circle" aria-hidden="true">
+              <span>→</span>
+            </div>
+          </div>
+          <!-- Card 8 -->
+          <div class="category-card" onclick="selectTargetPathway('c2')">
+            <div class="cat-icon-wrapper">
+              <span class="cat-icon">⚖️</span>
+            </div>
+            <h4>Diplomatic & Legal</h4>
+            <span class="cat-badge">C2 Required</span>
+            <div class="cat-arrow-circle" aria-hidden="true">
+              <span>→</span>
             </div>
           </div>
         </div>
@@ -126,361 +273,520 @@
     </section>
 
     <!-- ============================================================
-         SECTION II: OPPORTUNITY HUB – "Why Choose Germany?"
-    ============================================================ -->
-    <section class="opportunity-hub" id="why-germany" aria-labelledby="opp-heading">
-      <div class="section-container">
-        <div class="section-intro">
-          <span class="section-eyebrow">The European Destination</span>
-          <h2 id="opp-heading" class="section-main-title">Why Germany is Your Ultimate Career and Study Destination</h2>
-          <p class="section-subtitle-text">
-            Unlock premium living standards, career security, and permanent residency in Europe's economic powerhouse.
-          </p>
-        </div>
-
-        <div class="opportunities-grid-layout">
-          <!-- Card 1 -->
-          <div class="opportunity-card-item">
-            <div class="card-icon-container">🎓</div>
-            <h3>Tuition-Free Public Higher Education</h3>
-            <p>Access world-class Bachelor's and Master's degrees at public universities with zero tuition fees. Save thousands while studying.</p>
-          </div>
-          <!-- Card 2 -->
-          <div class="opportunity-card-item">
-            <div class="card-icon-container">🩺</div>
-            <h3>Critical Nursing Careers</h3>
-            <p>Recognized nursing qualification pathways offering direct employment, starting salaries from €4,000/month, and rapid integration support.</p>
-          </div>
-          <!-- Card 3 -->
-          <div class="opportunity-card-item">
-            <div class="card-icon-container">⚙️</div>
-            <h3>Elite Engineering Roles</h3>
-            <p>Germany has over 100,000 vacant roles in automotive, software, mechanical, and green energy sectors looking for bilingual professionals.</p>
-          </div>
-          <!-- Card 4 -->
-          <div class="opportunity-card-item">
-            <div class="card-icon-container">⚡</div>
-            <h3>Vocational Training (Ausbildung)</h3>
-            <p>Earn a monthly stipend while getting practical, on-the-job training in a technical field. 100% placement rate upon completion.</p>
-          </div>
-          <!-- Card 5 -->
-          <div class="opportunity-card-item">
-            <div class="card-icon-container">🛡️</div>
-            <h3>Fast-Track Permanent Residency</h3>
-            <p>Secure an EU Blue Card or national visa and qualify for Permanent Residency in as little as 21 to 27 months with verified language skills.</p>
-          </div>
-          <!-- Card 6 -->
-          <div class="opportunity-card-item">
-            <div class="card-icon-container">🌍</div>
-            <h3>Unrivaled Quality of Life</h3>
-            <p>Enjoy comprehensive healthcare coverage, extensive paid vacation, reliable public transit, and visa-free travel across 29 Schengen countries.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ============================================================
-         SECTION III: CEFR PATHWAY FOLDERS – "Which level is right for me?"
+         SECTION III: COURSE LISTING SECTION (Grid Layout)
     ============================================================ -->
     <section class="cefr-folders-section" id="levels" aria-labelledby="levels-heading">
       <div class="section-container">
         <div class="section-intro">
-          <span class="section-eyebrow">CEFR Alignment</span>
-          <h2 id="levels-heading" class="section-main-title">Select Your Level & Define Your Career Target</h2>
-          <p class="section-subtitle-text">
-            Choose the language tier mapped directly to your relocation objective. Learn which level is required to unlock your visa, university admission, or job contract.
-          </p>
+          <div class="cefr-alignment-badge">
+            <span class="badge-icon">📈</span> CEFR ALIGNMENT
+          </div>
+          <h2 id="levels-heading" class="section-main-title">
+            FÜNF German <span class="highlight-text">Language Courses</span>
+          </h2>
+          <div class="subtitle-container">
+            <div class="decor-line-left" aria-hidden="true">
+              <span class="line-part"></span>
+              <span class="icon-part">📖</span>
+            </div>
+            <p class="section-subtitle-text">
+              Explore our intensive preparation programs mapped directly to careers, university placements, and visa success.
+            </p>
+            <div class="decor-line-right" aria-hidden="true">
+              <span class="icon-part">🎓</span>
+              <span class="line-part"></span>
+            </div>
+          </div>
         </div>
 
         <div class="folders-wrapper-container">
-          <!-- Folder tabs navigation -->
+          <!-- Category Filter Pills Navigation (Supports original click handler) -->
           <div class="folders-tabs-header" role="tablist" aria-label="CEFR Course Levels">
-            <button class="folder-tab-btn active" role="tab" aria-selected="true" aria-controls="panel-a1" id="tab-a1" data-target="a1">
+            <button class="folder-tab-btn active" role="tab" aria-selected="true" aria-controls="panel-a1" id="tab-a1"
+              data-target="a1">
               <span class="tab-badge">A1</span>
-              <span class="tab-label">The First Step</span>
+              <span class="tab-label">Beginner Course</span>
             </button>
-            <button class="folder-tab-btn" role="tab" aria-selected="false" aria-controls="panel-a2" id="tab-a2" data-target="a2">
+            <button class="folder-tab-btn" role="tab" aria-selected="false" aria-controls="panel-a2" id="tab-a2"
+              data-target="a2">
               <span class="tab-badge">A2</span>
-              <span class="tab-label">Daily Focus</span>
+              <span class="tab-label">Elementary Course</span>
             </button>
-            <button class="folder-tab-btn" role="tab" aria-selected="false" aria-controls="panel-b1" id="tab-b1" data-target="b1">
+            <button class="folder-tab-btn" role="tab" aria-selected="false" aria-controls="panel-b1" id="tab-b1"
+              data-target="b1">
               <span class="tab-badge">B1</span>
-              <span class="tab-label">Visa Gateway</span>
+              <span class="tab-label">Intermediate Course</span>
             </button>
-            <button class="folder-tab-btn" role="tab" aria-selected="false" aria-controls="panel-b2" id="tab-b2" data-target="b2">
+            <button class="folder-tab-btn" role="tab" aria-selected="false" aria-controls="panel-b2" id="tab-b2"
+              data-target="b2">
               <span class="tab-badge">B2</span>
-              <span class="tab-label">The Career Level</span>
+              <span class="tab-label">Upper-Int. Course</span>
             </button>
-            <button class="folder-tab-btn" role="tab" aria-selected="false" aria-controls="panel-c1" id="tab-c1" data-target="c1">
+            <button class="folder-tab-btn" role="tab" aria-selected="false" aria-controls="panel-c1" id="tab-c1"
+              data-target="c1">
               <span class="tab-badge">C1</span>
-              <span class="tab-label">Academic Mastery</span>
+              <span class="tab-label">Advanced Course</span>
             </button>
-            <button class="folder-tab-btn" role="tab" aria-selected="false" aria-controls="panel-c2" id="tab-c2" data-target="c2">
+            <button class="folder-tab-btn" role="tab" aria-selected="false" aria-controls="panel-c2" id="tab-c2"
+              data-target="c2">
               <span class="tab-badge">C2</span>
-              <span class="tab-label">Bilingual Expert</span>
+              <span class="tab-label">Mastery Course</span>
             </button>
           </div>
 
-          <!-- Folder display content area -->
-          <div class="folder-display-content-card">
+          <!-- Grid container holding all 6 cards (styled in courses.css) -->
+          <div class="folder-display-content-card courses-grid-container">
+
             <!-- Tab Panel A1 -->
             <div class="folder-panel-content active" id="panel-a1" role="tabpanel" aria-labelledby="tab-a1">
-              <div class="panel-layout-grid">
-                <div class="panel-text-info">
-                  <div class="panel-badge-level">Level A1 • Beginner Deutsch</div>
-                  <h3>Your Foundation to Enter Germany</h3>
-                  <p class="panel-description">
-                    Take your absolute first step. You will master standard greetings, simple everyday questions, basic number usage, and learn to write short introductory emails. This level establishes pronunciation rules and reduces initial culture shock.
-                  </p>
-                  
-                  <div class="outcome-box-highlight">
-                    <strong>Relocation Outcomes:</strong>
-                    <ul>
-                      <li>✓ Mandatory requirement for Family Reunion/Spousal visas</li>
-                      <li>✓ Prepares initial background before landing for Au Pair stays</li>
-                      <li>✓ Baseline requirement for early Student Visa applications</li>
-                    </ul>
-                  </div>
+              <div class="course-card-inner">
+                <div class="card-thumb-container gradient-a1">
+
+                  <div class="card-thumb-letter">A1</div>
+                  <span class="card-tag badge-popular">Popular</span>
                 </div>
-                
-                <div class="panel-details-meta">
-                  <div class="meta-row">
-                    <span class="meta-key">Total Live Training</span>
-                    <span class="meta-value">60 Classroom Hours</span>
+                <div class="card-content-body">
+                  <span class="card-cat-badge">Language Visa</span>
+                  <h3>A1 German Course: Foundation</h3>
+                  <p class="card-instructor">By FÜNF Certified Trainers</p>
+                  <div class="card-ratings-row">
+                    <span class="rating-stars">★★★★★</span>
+                    <span class="rating-num">5.0</span>
+                    <span class="rating-count">(94 reviews)</span>
                   </div>
-                  <div class="meta-row">
-                    <span class="meta-key">Goethe Prep Included</span>
-                    <span class="meta-value">Goethe-Zertifikat A1 Focus</span>
+                  <div class="card-meta-grid">
+                    <div class="meta-box">
+                      <span class="meta-box-text">🕒 60 Hrs</span>
+                      <span class="meta-box-label">Duration</span>
+                    </div>
+                    <div class="meta-box">
+                      <span class="meta-box-text">💬 Live Classes</span>
+                      <span class="meta-box-label">Interactive</span>
+                    </div>
+                    <div class="meta-box">
+                      <span class="meta-box-text">📜 Certificate</span>
+                      <span class="meta-box-label">Goethe Aligned</span>
+                    </div>
                   </div>
-                  <div class="meta-row">
-                    <span class="meta-key">Speaking Practice</span>
-                    <span class="meta-value">2 Weekly Conversational Circles</span>
+                  <p class="card-target-text">
+                    <strong>Primary Target:</strong> Spousal Visa, Au Pair, and early Student Visa baseline.
+                  </p>
+                  <div class="card-action-btns-row">
+                    <button class="btn btn-outline view-syllabus-btn" data-level="a1" type="button">View
+                      Syllabus</button>
+                    <a href="#advisor-form" class="btn btn-primary enroll-course-btn" data-level="a1">Enroll in A1
+                      Course &rarr;</a>
                   </div>
-                  <div class="meta-row">
-                    <span class="meta-key">Materials Provided</span>
-                    <span class="meta-value">Official Netzwerk A1 / Hueber Books</span>
-                  </div>
-                  <a href="#advisor-form" class="btn btn-primary btn-block">Verify My Starting Level</a>
                 </div>
               </div>
             </div>
 
             <!-- Tab Panel A2 -->
             <div class="folder-panel-content" id="panel-a2" role="tabpanel" aria-labelledby="tab-a2">
-              <div class="panel-layout-grid">
-                <div class="panel-text-info">
-                  <div class="panel-badge-level">Level A2 • Elementary Deutsch</div>
-                  <h3>Everyday Conversational Confidence</h3>
-                  <p class="panel-description">
-                    Expand your skills. Learn to express routine tasks, describe family members, request specific services, and discuss past activities. You'll progress from isolated sentences to connected speech patterns.
-                  </p>
-                  
-                  <div class="outcome-box-highlight">
-                    <strong>Relocation Outcomes:</strong>
-                    <ul>
-                      <li>✓ Standard baseline for FSJ/BFD (Voluntary Service in Germany)</li>
-                      <li>✓ Essential basic conversational integration for tourists & students</li>
-                      <li>✓ Unlocks initial employment opportunities in low-interaction roles</li>
-                    </ul>
-                  </div>
+              <div class="course-card-inner">
+                <div class="card-thumb-container gradient-a2">
+
+                  <div class="card-thumb-letter">A2</div>
+                  <span class="card-tag badge-new">New Batch</span>
                 </div>
-                
-                <div class="panel-details-meta">
-                  <div class="meta-row">
-                    <span class="meta-key">Total Live Training</span>
-                    <span class="meta-value">60 Classroom Hours</span>
+                <div class="card-content-body">
+                  <span class="card-cat-badge">Daily Focus</span>
+                  <h3>A2 German Course: Elementary</h3>
+                  <p class="card-instructor">By FÜNF Certified Trainers</p>
+                  <div class="card-ratings-row">
+                    <span class="rating-stars">★★★★★</span>
+                    <span class="rating-num">5.0</span>
+                    <span class="rating-count">(88 reviews)</span>
                   </div>
-                  <div class="meta-row">
-                    <span class="meta-key">Goethe Prep Included</span>
-                    <span class="meta-value">Goethe-Zertifikat A2 Focus</span>
+                  <div class="card-meta-grid">
+                    <div class="meta-box">
+                      <span class="meta-box-text">🕒 60 Hrs</span>
+                      <span class="meta-box-label">Duration</span>
+                    </div>
+                    <div class="meta-box">
+                      <span class="meta-box-text">💬 Live Classes</span>
+                      <span class="meta-box-label">Interactive</span>
+                    </div>
+                    <div class="meta-box">
+                      <span class="meta-box-text">📜 Certificate</span>
+                      <span class="meta-box-label">Goethe Aligned</span>
+                    </div>
                   </div>
-                  <div class="meta-row">
-                    <span class="meta-key">Speaking Practice</span>
-                    <span class="meta-value">3 Weekly Scenario-Based Circles</span>
+                  <p class="card-target-text">
+                    <strong>Primary Target:</strong> FSJ/BFD voluntary services and daily conversational confidence.
+                  </p>
+                  <div class="card-action-btns-row">
+                    <button class="btn btn-outline view-syllabus-btn" data-level="a2" type="button">View
+                      Syllabus</button>
+                    <a href="#advisor-form" class="btn btn-primary enroll-course-btn" data-level="a2">Enroll in A2
+                      Course &rarr;</a>
                   </div>
-                  <div class="meta-row">
-                    <span class="meta-key">Materials Provided</span>
-                    <span class="meta-value">Official Netzwerk A2 / Hueber Books</span>
-                  </div>
-                  <a href="#advisor-form" class="btn btn-primary btn-block">Verify My Starting Level</a>
                 </div>
               </div>
             </div>
 
             <!-- Tab Panel B1 -->
             <div class="folder-panel-content" id="panel-b1" role="tabpanel" aria-labelledby="tab-b1">
-              <div class="panel-layout-grid">
-                <div class="panel-text-info">
-                  <div class="panel-badge-level">Level B1 • Intermediate Deutsch</div>
-                  <h3>The Gateway to Visa & Vocational Paths</h3>
-                  <p class="panel-description">
-                    Become an independent speaker. Learn to handle most situations encountered while traveling in German-speaking countries. Formulate structured arguments, express hopes and ambitions, and write coherent personal and professional reports.
-                  </p>
-                  
-                  <div class="outcome-box-highlight">
-                    <strong>Relocation Outcomes:</strong>
-                    <ul>
-                      <li>✓ Mandatory for vocational training applications (Ausbildung)</li>
-                      <li>✓ Unlocks preparatory study courses (Studienkolleg) at public universities</li>
-                      <li>✓ Required for direct entry into English-taught Master's programs</li>
-                    </ul>
-                  </div>
+              <div class="course-card-inner">
+                <div class="card-thumb-container gradient-b1">
+
+                  <div class="card-thumb-letter">B1</div>
+                  <span class="card-tag badge-bestseller">Bestseller</span>
                 </div>
-                
-                <div class="panel-details-meta">
-                  <div class="meta-row">
-                    <span class="meta-key">Total Live Training</span>
-                    <span class="meta-value">80 Classroom Hours</span>
+                <div class="card-content-body">
+                  <span class="card-cat-badge">Visa Gateway</span>
+                  <h3>B1 German Course: Intermediate</h3>
+                  <p class="card-instructor">By FÜNF Certified Trainers</p>
+                  <div class="card-ratings-row">
+                    <span class="rating-stars">★★★★★</span>
+                    <span class="rating-num">5.0</span>
+                    <span class="rating-count">(142 reviews)</span>
                   </div>
-                  <div class="meta-row">
-                    <span class="meta-key">Goethe Prep Included</span>
-                    <span class="meta-value">Goethe & TELC B1 Mock Exams</span>
+                  <div class="card-meta-grid">
+                    <div class="meta-box">
+                      <span class="meta-box-text">🕒 80 Hrs</span>
+                      <span class="meta-box-label">Duration</span>
+                    </div>
+                    <div class="meta-box">
+                      <span class="meta-box-text">💬 Live Classes</span>
+                      <span class="meta-box-label">Interactive</span>
+                    </div>
+                    <div class="meta-box">
+                      <span class="meta-box-text">📜 Certificate</span>
+                      <span class="meta-box-label">Goethe Aligned</span>
+                    </div>
                   </div>
-                  <div class="meta-row">
-                    <span class="meta-key">Speaking Practice</span>
-                    <span class="meta-value">Daily Discussion Rounds</span>
+                  <p class="card-target-text">
+                    <strong>Primary Target:</strong> Vocational Ausbildung, Studienkolleg, and English-taught Master's.
+                  </p>
+                  <div class="card-action-btns-row">
+                    <button class="btn btn-outline view-syllabus-btn" data-level="b1" type="button">View
+                      Syllabus</button>
+                    <a href="#advisor-form" class="btn btn-primary enroll-course-btn" data-level="b1">Enroll in B1
+                      Course &rarr;</a>
                   </div>
-                  <div class="meta-row">
-                    <span class="meta-key">Materials Provided</span>
-                    <span class="meta-value">Studio d B1 / Aspekte Neu B1</span>
-                  </div>
-                  <a href="#advisor-form" class="btn btn-primary btn-block">Verify My Starting Level</a>
                 </div>
               </div>
             </div>
 
             <!-- Tab Panel B2 -->
             <div class="folder-panel-content" id="panel-b2" role="tabpanel" aria-labelledby="tab-b2">
-              <div class="panel-layout-grid">
-                <div class="panel-text-info">
-                  <div class="panel-badge-level">Level B2 • Upper Intermediate Deutsch</div>
-                  <h3>Workplace Readiness & Employer Matching</h3>
-                  <p class="panel-description">
-                    Unlock professional employment. Understand complex abstract themes, discuss technical arguments in your field of expertise, and maintain spontaneous, fluent interactions with native German speakers. Perfect your writing for professional correspondence.
-                  </p>
-                  
-                  <div class="outcome-box-highlight">
-                    <strong>Relocation Outcomes:</strong>
-                    <ul>
-                      <li>✓ Mandatory level for foreign Registered Nurse registration (Anerkennung)</li>
-                      <li>✓ Strongly recommended for Engineers, IT professionals, and job-seekers</li>
-                      <li>✓ Requirement for German-taught Bachelor's degrees in public colleges</li>
-                    </ul>
-                  </div>
+              <div class="course-card-inner">
+                <div class="card-thumb-container gradient-b2">
+
+                  <div class="card-thumb-letter">B2</div>
+                  <span class="card-tag badge-bestseller">Career Standard</span>
                 </div>
-                
-                <div class="panel-details-meta">
-                  <div class="meta-row">
-                    <span class="meta-key">Total Live Training</span>
-                    <span class="meta-value">100 Classroom Hours</span>
+                <div class="card-content-body">
+                  <span class="card-cat-badge">Professional</span>
+                  <h3>B2 German Course: Upper-Int.</h3>
+                  <p class="card-instructor">By FÜNF Certified Trainers</p>
+                  <div class="card-ratings-row">
+                    <span class="rating-stars">★★★★★</span>
+                    <span class="rating-num">5.0</span>
+                    <span class="rating-count">(210 reviews)</span>
                   </div>
-                  <div class="meta-row">
-                    <span class="meta-key">Goethe Prep Included</span>
-                    <span class="meta-value">Goethe & TELC B2 Simulation Tests</span>
+                  <div class="card-meta-grid">
+                    <div class="meta-box">
+                      <span class="meta-box-text">🕒 100 Hrs</span>
+                      <span class="meta-box-label">Duration</span>
+                    </div>
+                    <div class="meta-box">
+                      <span class="meta-box-text">💬 Live Classes</span>
+                      <span class="meta-box-label">Interactive</span>
+                    </div>
+                    <div class="meta-box">
+                      <span class="meta-box-text">📜 Certificate</span>
+                      <span class="meta-box-label">Goethe Aligned</span>
+                    </div>
                   </div>
-                  <div class="meta-row">
-                    <span class="meta-key">Professional Module</span>
-                    <span class="meta-value">Medical/Technical German Modules</span>
+                  <p class="card-target-text">
+                    <strong>Primary Target:</strong> Nursing Recognition (Anerkennung), Engineers, and IT Professionals.
+                  </p>
+                  <div class="card-action-btns-row">
+                    <button class="btn btn-outline view-syllabus-btn" data-level="b2" type="button">View
+                      Syllabus</button>
+                    <a href="#advisor-form" class="btn btn-primary enroll-course-btn" data-level="b2">Enroll in B2
+                      Course &rarr;</a>
                   </div>
-                  <div class="meta-row">
-                    <span class="meta-key">Materials Provided</span>
-                    <span class="meta-value">Aspekte Neu B2 / Erkundungen B2</span>
-                  </div>
-                  <a href="#advisor-form" class="btn btn-primary btn-block">Verify My Starting Level</a>
                 </div>
               </div>
             </div>
 
             <!-- Tab Panel C1 -->
             <div class="folder-panel-content" id="panel-c1" role="tabpanel" aria-labelledby="tab-c1">
-              <div class="panel-layout-grid">
-                <div class="panel-text-info">
-                  <div class="panel-badge-level">Level C1 • Advanced Deutsch</div>
-                  <h3>Advanced Professional & Academic Fluency</h3>
-                  <p class="panel-description">
-                    Navigate complex environments with ease. Understand a broad range of demanding texts, grasp subtle double-meanings, and structure fluent, coherent arguments for executive, administrative, or research operations.
-                  </p>
-                  
-                  <div class="outcome-box-highlight">
-                    <strong>Relocation Outcomes:</strong>
-                    <ul>
-                      <li>✓ Required for direct admission to German-medium public university degrees</li>
-                      <li>✓ Essential for medical doctors seeking medical license (Approbation)</li>
-                      <li>✓ Unlocks top-tier business management and executive career roles</li>
-                    </ul>
-                  </div>
+              <div class="course-card-inner">
+                <div class="card-thumb-container gradient-c1">
+
+                  <div class="card-thumb-letter">C1</div>
+                  <span class="card-tag badge-popular">Academic Choice</span>
                 </div>
-                
-                <div class="panel-details-meta">
-                  <div class="meta-row">
-                    <span class="meta-key">Total Live Training</span>
-                    <span class="meta-value">100 Classroom Hours</span>
+                <div class="card-content-body">
+                  <span class="card-cat-badge">Academic Mastery</span>
+                  <h3>C1 German Course: Advanced</h3>
+                  <p class="card-instructor">By FÜNF Certified Trainers</p>
+                  <div class="card-ratings-row">
+                    <span class="rating-stars">★★★★★</span>
+                    <span class="rating-num">5.0</span>
+                    <span class="rating-count">(118 reviews)</span>
                   </div>
-                  <div class="meta-row">
-                    <span class="meta-key">Goethe Prep Included</span>
-                    <span class="meta-value">TestDaF / Goethe C1 Prep Package</span>
+                  <div class="card-meta-grid">
+                    <div class="meta-box">
+                      <span class="meta-box-text">🕒 100 Hrs</span>
+                      <span class="meta-box-label">Duration</span>
+                    </div>
+                    <div class="meta-box">
+                      <span class="meta-box-text">💬 Live Classes</span>
+                      <span class="meta-box-label">Interactive</span>
+                    </div>
+                    <div class="meta-box">
+                      <span class="meta-box-text">📜 Certificate</span>
+                      <span class="meta-box-label">Goethe Aligned</span>
+                    </div>
                   </div>
-                  <div class="meta-row">
-                    <span class="meta-key">Speaking Practice</span>
-                    <span class="meta-value">Presentation & Academic Debate Drills</span>
+                  <p class="card-target-text">
+                    <strong>Primary Target:</strong> German-medium degrees and Medical Doctors (Approbation).
+                  </p>
+                  <div class="card-action-btns-row">
+                    <button class="btn btn-outline view-syllabus-btn" data-level="c1" type="button">View
+                      Syllabus</button>
+                    <a href="#advisor-form" class="btn btn-primary enroll-course-btn" data-level="c1">Enroll in C1
+                      Course &rarr;</a>
                   </div>
-                  <div class="meta-row">
-                    <span class="meta-key">Materials Provided</span>
-                    <span class="meta-value">Erkundungen C1 / Hueber C1 Textbooks</span>
-                  </div>
-                  <a href="#advisor-form" class="btn btn-primary btn-block">Verify My Starting Level</a>
                 </div>
               </div>
             </div>
 
             <!-- Tab Panel C2 -->
             <div class="folder-panel-content" id="panel-c2" role="tabpanel" aria-labelledby="tab-c2">
-              <div class="panel-layout-grid">
-                <div class="panel-text-info">
-                  <div class="panel-badge-level">Level C2 • Bilingual Mastery</div>
-                  <h3>Bilingual Fluency & Complete Integration</h3>
-                  <p class="panel-description">
-                    Achieve native-level precision. Understand practically everything you read or hear with ease. Summarize complex information from different verbal or written sources, and reconstruct logical arguments in a cohesive, polished presentation.
-                  </p>
-                  
-                  <div class="outcome-box-highlight">
-                    <strong>Relocation Outcomes:</strong>
-                    <ul>
-                      <li>✓ Unlocks legal, translation, and high-level diplomatic careers</li>
-                      <li>✓ Direct validation for university professorships and research tenures</li>
-                      <li>✓ The ultimate credential for long-term integration and career growth</li>
-                    </ul>
-                  </div>
+              <div class="course-card-inner">
+                <div class="card-thumb-container gradient-c2">
+
+
+                  <div class="card-thumb-letter">C2</div>
+                  <span class="card-tag badge-popular">Specialized</span>
                 </div>
-                
-                <div class="panel-details-meta">
-                  <div class="meta-row">
-                    <span class="meta-key">Total Live Training</span>
-                    <span class="meta-value">Customized Coaching</span>
+                <div class="card-content-body">
+                  <span class="card-cat-badge">Mastery</span>
+                  <h3>C2 German Course: Mastery</h3>
+                  <p class="card-instructor">By FÜNF Certified Trainers</p>
+                  <div class="card-ratings-row">
+                    <span class="rating-stars">★★★★★</span>
+                    <span class="rating-num">5.0</span>
+                    <span class="rating-count">(64 reviews)</span>
                   </div>
-                  <div class="meta-row">
-                    <span class="meta-key">Goethe Prep Included</span>
-                    <span class="meta-value">Goethe-Zertifikat C2 Prep</span>
+                  <div class="card-meta-grid">
+                    <div class="meta-box">
+                      <span class="meta-box-text">🕒 Flexible</span>
+                      <span class="meta-box-label">Duration</span>
+                    </div>
+                    <div class="meta-box">
+                      <span class="meta-box-text">💬 Live Classes</span>
+                      <span class="meta-box-label">Interactive</span>
+                    </div>
+                    <div class="meta-box">
+                      <span class="meta-box-text">📜 Certificate</span>
+                      <span class="meta-box-label">Goethe Aligned</span>
+                    </div>
                   </div>
-                  <div class="meta-row">
-                    <span class="meta-key">Coaching Mode</span>
-                    <span class="meta-value">One-on-One Specialized Support</span>
+                  <p class="card-target-text">
+                    <strong>Primary Target:</strong> Translation, legal, professorships, and high-level diplomatic
+                    careers.
+                  </p>
+                  <div class="card-action-btns-row">
+                    <button class="btn btn-outline view-syllabus-btn" data-level="c2" type="button">View
+                      Syllabus</button>
+                    <a href="#advisor-form" class="btn btn-primary enroll-course-btn" data-level="c2">Enroll in C2
+                      Course &rarr;</a>
                   </div>
-                  <div class="meta-row">
-                    <span class="meta-key">Target Fields</span>
-                    <span class="meta-value">Linguistics, Translation, Diplomacy</span>
-                  </div>
-                  <a href="#advisor-form" class="btn btn-primary btn-block">Verify My Starting Level</a>
                 </div>
               </div>
             </div>
+
           </div>
         </div>
       </div>
     </section>
 
     <!-- ============================================================
-         SECTION IV: THE LEARNING JOURNEY – "How will I progress?"
+         SECTION IV: PREMIUM STATISTICS STRIP (Animated Gauges)
+    ============================================================ -->
+    <section class="premium-stats-section" aria-label="FÜNF Academy Stats">
+      <div class="section-container stats-strip-container">
+        
+        <div class="stat-gauge-card">
+          <div class="gauge-container">
+            <svg class="gauge-svg" viewBox="0 0 100 100" aria-hidden="true">
+              <circle class="gauge-track track-blue" cx="50" cy="50" r="40" stroke-width="7" fill="none" />
+              <circle class="gauge-fill gauge-blue" cx="50" cy="50" r="40" stroke-width="7" fill="none"
+                      stroke-dasharray="251.2" stroke-linecap="round" transform="rotate(-90 50 50)" />
+            </svg>
+            <div class="gauge-text">5,000+</div>
+          </div>
+          <p class="gauge-label">Students Relocated</p>
+        </div>
+
+        <div class="stat-gauge-card">
+          <div class="gauge-container">
+            <svg class="gauge-svg" viewBox="0 0 100 100" aria-hidden="true">
+              <circle class="gauge-track track-orange" cx="50" cy="50" r="40" stroke-width="7" fill="none" />
+              <circle class="gauge-fill gauge-orange" cx="50" cy="50" r="40" stroke-width="7" fill="none"
+                      stroke-dasharray="251.2" stroke-linecap="round" transform="rotate(-90 50 50)" />
+            </svg>
+            <div class="gauge-text">100%</div>
+          </div>
+          <p class="gauge-label">Goethe Pass Rate</p>
+        </div>
+
+        <div class="stat-gauge-card">
+          <div class="gauge-container">
+            <svg class="gauge-svg" viewBox="0 0 100 100" aria-hidden="true">
+              <circle class="gauge-track track-red" cx="50" cy="50" r="40" stroke-width="7" fill="none" />
+              <circle class="gauge-fill gauge-red" cx="50" cy="50" r="40" stroke-width="7" fill="none"
+                      stroke-dasharray="251.2" stroke-linecap="round" transform="rotate(-90 50 50)" />
+            </svg>
+            <div class="gauge-text">98%</div>
+          </div>
+          <p class="gauge-label">Visa Success Rate</p>
+        </div>
+
+        <div class="stat-gauge-card">
+          <div class="gauge-container">
+            <svg class="gauge-svg" viewBox="0 0 100 100" aria-hidden="true">
+              <circle class="gauge-track track-teal" cx="50" cy="50" r="40" stroke-width="7" fill="none" />
+              <circle class="gauge-fill gauge-teal" cx="50" cy="50" r="40" stroke-width="7" fill="none"
+                      stroke-dasharray="251.2" stroke-linecap="round" transform="rotate(-90 50 50)" />
+            </svg>
+            <div class="gauge-text">10+ Years</div>
+          </div>
+          <p class="gauge-label">Expert Instructors</p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ============================================================
+         SECTION V: OPPORTUNITY HUB (Redesigned Categories Intro)
+    ============================================================ -->
+    <section class="opportunity-hub" id="why-germany" aria-labelledby="opp-heading">
+      <div class="section-container">
+        
+        <!-- Split Header Grid -->
+        <div class="opportunity-hub-header">
+          <div class="opportunity-header-text">
+            <div class="germany-eyebrow-badge">The European Destination</div>
+            <h2 id="opp-heading" class="section-main-title">
+              Why Germany is Your Ultimate <span class="highlight-text">Career and Study Destination</span>
+            </h2>
+            <p class="section-subtitle-text">
+              Unlock premium living standards, career security, and permanent residency in Europe's economic powerhouse.
+            </p>
+          </div>
+          <div class="opportunity-header-visual" aria-hidden="true">
+            <img src="germany_visual.png" alt="Germany Landmarks Skyline" class="skyline-visual-img" />
+          </div>
+        </div>
+
+        <!-- Stacked Horizontal List Rows -->
+        <div class="opportunity-rows-list">
+          
+          <!-- Row 1 -->
+          <div class="opportunity-row-card row-color-01">
+            <div class="card-left-info">
+              <div class="row-icon-box" aria-hidden="true">🎓</div>
+              <span class="row-index">01</span>
+              <div class="row-details">
+                <h3>Tuition-Free Public Higher Education</h3>
+                <p>Access world-class Bachelor's and Master's degrees at public universities with zero tuition fees. Save thousands while studying.</p>
+              </div>
+            </div>
+            <div class="row-image-slice-wrap" aria-hidden="true">
+              <div class="row-image-slice" style="background-image: url('institute_bg.png');"></div>
+            </div>
+          </div>
+
+          <!-- Row 2 -->
+          <div class="opportunity-row-card row-color-02">
+            <div class="card-left-info">
+              <div class="row-icon-box" aria-hidden="true">🏥</div>
+              <span class="row-index">02</span>
+              <div class="row-details">
+                <h3>Critical Nursing Careers</h3>
+                <p>Recognized nursing qualification pathways offering direct employment, starting salaries from €4,000/month, and rapid integration support.</p>
+              </div>
+            </div>
+            <div class="row-image-slice-wrap" aria-hidden="true">
+              <div class="row-image-slice" style="background-image: url('germany_banner.png');"></div>
+            </div>
+          </div>
+
+          <!-- Row 3 -->
+          <div class="opportunity-row-card row-color-03">
+            <div class="card-left-info">
+              <div class="row-icon-box" aria-hidden="true">💼</div>
+              <span class="row-index">03</span>
+              <div class="row-details">
+                <h3>Elite Engineering Roles</h3>
+                <p>Germany has over 100,000 vacant roles in automotive, software, mechanical, and green energy sectors looking for bilingual professionals.</p>
+              </div>
+            </div>
+            <div class="row-image-slice-wrap" aria-hidden="true">
+              <div class="row-image-slice" style="background-image: url('course_banner.png');"></div>
+            </div>
+          </div>
+
+          <!-- Row 4 -->
+          <div class="opportunity-row-card row-color-04">
+            <div class="card-left-info">
+              <div class="row-icon-box" aria-hidden="true">📖</div>
+              <span class="row-index">04</span>
+              <div class="row-details">
+                <h3>Vocational Training (Ausbildung)</h3>
+                <p>Earn a monthly stipend while getting practical, on-the-job training in a technical field. 100% placement rate upon completion.</p>
+              </div>
+            </div>
+            <div class="row-image-slice-wrap" aria-hidden="true">
+              <div class="row-image-slice" style="background-image: url('germany_roadmap_map.png');"></div>
+            </div>
+          </div>
+
+          <!-- Row 5 -->
+          <div class="opportunity-row-card row-color-05">
+            <div class="card-left-info">
+              <div class="row-icon-box" aria-hidden="true">🪪</div>
+              <span class="row-index">05</span>
+              <div class="row-details">
+                <h3>Fast-Track Permanent Residency</h3>
+                <p>Secure an EU Blue Card or national visa and qualify for Permanent Residency in as little as 21 to 27 months with verified language skills.</p>
+              </div>
+            </div>
+            <div class="row-image-slice-wrap" aria-hidden="true">
+              <div class="row-image-slice" style="background-image: url('goethe_certificate.png');"></div>
+            </div>
+          </div>
+
+          <!-- Row 6 -->
+          <div class="opportunity-row-card row-color-06">
+            <div class="card-left-info">
+              <div class="row-icon-box" aria-hidden="true">❤️</div>
+              <span class="row-index">06</span>
+              <div class="row-details">
+                <h3>Unrivaled Quality of Life</h3>
+                <p>Enjoy comprehensive healthcare coverage, extensive paid vacation, reliable public transit, and visa-free travel across 29 Schengen countries.</p>
+              </div>
+            </div>
+            <div class="row-image-slice-wrap" aria-hidden="true">
+              <div class="row-image-slice" style="background-image: url('germany_hero_visual.png');"></div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ============================================================
+         SECTION VI: THE LEARNING JOURNEY – "How will I progress?"
     ============================================================ -->
     <section class="learning-journey-section" id="journey" aria-labelledby="journey-heading">
       <div class="section-container">
@@ -493,200 +799,375 @@
         </div>
 
         <div class="journey-timeline-container">
-          <!-- Step 1 -->
-          <div class="timeline-card-item" data-animate="fade-up">
-            <div class="timeline-step-badge">Phase 01</div>
-            <div class="timeline-card-content">
-              <h3>Diagnostic Consultation & Baseline</h3>
-              <p>We analyze your education/career background (Nursing, IT, Engineering, or Academic study) and match you to the correct language benchmark. We build a personalized roadmap detailing the hours, tools, and materials you need.</p>
-              <div class="timeline-card-meta">Start point • Target Level Mapping</div>
+          <div class="timeline-thread-line"></div>
+
+          <!-- Step 1: Diagnostic Consultation -->
+          <div class="timeline-row-item phase-blue">
+            <!-- Left Phase Badge Column -->
+            <div class="timeline-badge-col">
+              <div class="phase-circle">
+                <span>PHASE</span>
+                <strong>01</strong>
+              </div>
+              <div class="badge-connector">
+                <span class="connector-line"></span>
+                <span class="connector-dot"></span>
+              </div>
+            </div>
+            
+            <!-- Main Content Card -->
+            <div class="timeline-card">
+              <div class="card-left-section">
+                <div class="card-badge-icon">📋</div>
+                <div class="card-details-section">
+                  <h3>Diagnostic Consultation & Baseline</h3>
+                  <p>We analyze your education/career background (Nursing, IT, Engineering, or Academic study) and match you to the correct language benchmark. We build a personalized roadmap detailing the hours, tools, and materials you need.</p>
+                  <div class="card-tags-row">
+                    <span class="card-tag-bullet">✔ Start Point</span>
+                    <span class="card-tag-bullet">✔ Target Level Mapping</span>
+                    <span class="card-tag-bullet">✔ Personalized Roadmap</span>
+                  </div>
+                </div>
+              </div>
+              <div class="card-visual-mockup tablet-mockup">
+                <img src="germany_roadmap_map.png" alt="Personalized Roadmap Mockup" />
+              </div>
             </div>
           </div>
-          <!-- Step 2 -->
-          <div class="timeline-card-item" data-animate="fade-up">
-            <div class="timeline-step-badge">Phase 02</div>
-            <div class="timeline-card-content">
-              <h3>Interactive Native-Tutor Instruction</h3>
-              <p>Attend intensive live online classroom programs. Our curriculum balances structured grammar and grammar rules with active daily speaking circles. Tutors are Goethe-certified with years of training expertise.</p>
-              <div class="timeline-card-meta">Live Speaking • Scenario-Based Vocabulary</div>
+
+          <!-- Step 2: Interactive Native-Tutor Instruction -->
+          <div class="timeline-row-item phase-teal">
+            <!-- Left Phase Badge Column -->
+            <div class="timeline-badge-col">
+              <div class="phase-circle">
+                <span>PHASE</span>
+                <strong>02</strong>
+              </div>
+              <div class="badge-connector">
+                <span class="connector-line"></span>
+                <span class="connector-dot"></span>
+              </div>
+            </div>
+            
+            <!-- Main Content Card -->
+            <div class="timeline-card">
+              <div class="card-left-section">
+                <div class="card-badge-icon">🎧</div>
+                <div class="card-details-section">
+                  <h3>Interactive Native-Tutor Instruction</h3>
+                  <p>Attend intensive live online classroom programs. Our curriculum balances structured grammar and grammar rules with active daily speaking circles. Tutors are Goethe-certified with years of training expertise.</p>
+                  <div class="card-tags-row">
+                    <span class="card-tag-bullet">✔ Live Speaking</span>
+                    <span class="card-tag-bullet">✔ Scenario-Based Vocabulary</span>
+                    <span class="card-tag-bullet">✔ Goethe-Certified Tutors</span>
+                  </div>
+                </div>
+              </div>
+              <!-- Video Call Mockup using 4 trainers -->
+              <div class="card-visual-mockup video-call-mockup">
+                <div class="video-grid">
+                  <div class="video-cell"><img src="trainer1.png" alt="Trainer 1" /></div>
+                  <div class="video-cell"><img src="trainer2.png" alt="Trainer 2" /></div>
+                  <div class="video-cell"><img src="trainer3.png" alt="Trainer 3" /></div>
+                  <div class="video-cell"><img src="trainer4.png" alt="Trainer 4" /></div>
+                </div>
+                <span class="live-rec-badge">🔴 LIVE</span>
+              </div>
             </div>
           </div>
-          <!-- Step 3 -->
-          <div class="timeline-card-item" data-animate="fade-up">
-            <div class="timeline-step-badge">Phase 03</div>
-            <div class="timeline-card-content">
-              <h3>Intensive Goethe/TELC Prep</h3>
-              <p>Prepare for the official examinations. We run 10+ full-length simulator tests, analyze minor errors, run listening comprehension sprints, and run oral mock discussions. We guarantee first-time success.</p>
-              <div class="timeline-card-meta">Mock Tests • Certificate Training</div>
+
+          <!-- Step 3: Intensive Goethe/TELC Prep -->
+          <div class="timeline-row-item phase-purple">
+            <!-- Left Phase Badge Column -->
+            <div class="timeline-badge-col">
+              <div class="phase-circle">
+                <span>PHASE</span>
+                <strong>03</strong>
+              </div>
+              <div class="badge-connector">
+                <span class="connector-line"></span>
+                <span class="connector-dot"></span>
+              </div>
+            </div>
+            
+            <!-- Main Content Card -->
+            <div class="timeline-card">
+              <div class="card-left-section">
+                <div class="card-badge-icon">🎯</div>
+                <div class="card-details-section">
+                  <h3>Intensive Goethe/TELC Prep</h3>
+                  <p>Prepare for the official examinations. We run 10+ full-length simulator tests, analyze minor errors, run listening comprehension sprints, and run oral mock discussions. We guarantee first-time success.</p>
+                  <div class="card-tags-row">
+                    <span class="card-tag-bullet">✔ Mock Tests</span>
+                    <span class="card-tag-bullet">✔ Certificate Training</span>
+                    <span class="card-tag-bullet">✔ Exam Strategy & Feedback</span>
+                  </div>
+                </div>
+              </div>
+              <div class="card-visual-mockup document-mockup">
+                <img src="goethe_certificate.png" alt="Goethe Certificate Preparation" />
+              </div>
             </div>
           </div>
-          <!-- Step 4 -->
-          <div class="timeline-card-item" data-animate="fade-up">
-            <div class="timeline-step-badge">Phase 04</div>
-            <div class="timeline-card-content">
-              <h3>Transition & Placement Launchpad</h3>
-              <p>While completing your language level, FÜNF's placement team handles your university application or matches you with hiring employers in Germany. We manage resume translations, APS validation, and guide you through the embassy visa file.</p>
-              <div class="timeline-card-meta">Employer Matches • Visa Coaching • APS Support</div>
+
+          <!-- Step 4: Transition & Placement Launchpad -->
+          <div class="timeline-row-item phase-orange">
+            <!-- Left Phase Badge Column -->
+            <div class="timeline-badge-col">
+              <div class="phase-circle">
+                <span>PHASE</span>
+                <strong>04</strong>
+              </div>
+              <div class="badge-connector">
+                <span class="connector-line"></span>
+                <span class="connector-dot"></span>
+              </div>
+            </div>
+            
+            <!-- Main Content Card -->
+            <div class="timeline-card">
+              <div class="card-left-section">
+                <div class="card-badge-icon">💼</div>
+                <div class="card-details-section">
+                  <h3>Transition & Placement Launchpad</h3>
+                  <p>While completing your language level, FÜNF's placement team handles your university application or matches you with hiring employers in Germany. We manage resume translations, APS validation, and guide you through the embassy visa file.</p>
+                  <div class="card-tags-row">
+                    <span class="card-tag-bullet">✔ Employer Matches</span>
+                    <span class="card-tag-bullet">✔ Visa Coaching</span>
+                    <span class="card-tag-bullet">✔ APS Support</span>
+                  </div>
+                </div>
+              </div>
+              <div class="card-visual-mockup skyline-mockup">
+                <img src="germany_visual.png" alt="German Skyline Placements" />
+              </div>
             </div>
           </div>
+
         </div>
+
       </div>
     </section>
 
     <!-- ============================================================
-         SECTION V: PLACEMENTS & TRANSITION – "What opportunities will I get?"
-         (Selective Dark Emphasis)
+         SECTION VII: BENEFITS SECTION (FÜNF Career Suite Redesigned)
     ============================================================ -->
     <section class="placement-services-section" id="placements" aria-labelledby="placement-heading">
       <div class="section-container">
         <div class="placement-layout-split">
+          
+          <!-- Left Column Content -->
           <div class="placement-text-panel">
             <span class="placement-tag">Beyond Language</span>
+            <span class="paper-airplane-decor" aria-hidden="true">✈️</span>
             <h2 id="placement-heading">The FÜNF Career & Relocation Suite</h2>
-            <p>
+            <p class="intro-desc">
               A language class alone does not secure your job or enrollment. Our complete platform acts as your partner, managing the bureaucratic steps required to step off the plane in Germany with confidence.
             </p>
 
             <div class="placement-pillars-list">
-              <div class="pillar-item">
-                <span class="pillar-bullet">✓</span>
+              
+              <!-- Pillar 1 -->
+              <div class="pillar-item pillar-blue">
+                <div class="pillar-icon-box" aria-hidden="true">📄</div>
                 <div>
                   <h4>APS Verification Guidance</h4>
                   <p>Indian students require an Academic Evaluation Center (APS) certificate. We handle validation workflows to fast-track your university admissions.</p>
+                  <span class="pillar-line-accent"></span>
                 </div>
               </div>
-              <div class="pillar-item">
-                <span class="pillar-bullet">✓</span>
+
+              <!-- Pillar 2 -->
+              <div class="pillar-item pillar-green">
+                <div class="pillar-icon-box" aria-hidden="true">📝</div>
                 <div>
                   <h4>German Standard Resume (Lebenslauf) Rebuild</h4>
                   <p>Our specialists translate and structure your CV, cover letter, and professional record to match the precise expectations of German HR managers.</p>
+                  <span class="pillar-line-accent"></span>
                 </div>
               </div>
-              <div class="pillar-item">
-                <span class="pillar-bullet">✓</span>
+
+              <!-- Pillar 3 -->
+              <div class="pillar-item pillar-purple">
+                <div class="pillar-icon-box" aria-hidden="true">🛂</div>
                 <div>
                   <h4>Embassy & Visa File Preps</h4>
                   <p>Mock visa interview simulations, blocked account guides, travel insurance validation, and interview review sessions to prevent visa delays.</p>
+                  <span class="pillar-line-accent"></span>
                 </div>
               </div>
-              <div class="pillar-item">
-                <span class="pillar-bullet">✓</span>
+
+              <!-- Pillar 4 -->
+              <div class="pillar-item pillar-orange">
+                <div class="pillar-icon-box" aria-hidden="true">👥</div>
                 <div>
                   <h4>Direct Employer Connections</h4>
                   <p>Direct hiring links to clinics, hospitals, and technology teams seeking skilled talent from India. We coordinate client interviews directly.</p>
+                  <span class="pillar-line-accent"></span>
                 </div>
               </div>
+
             </div>
           </div>
 
+          <!-- Right Column Card -->
           <div class="placement-visual-panel">
             <div class="visual-panel-card">
-              <div class="card-germany-map-title">Germany Opportunities Key Hubs</div>
+              
+              <div class="card-germany-map-title">
+                <span class="title-icon-box" aria-hidden="true">📍</span>
+                <span>Germany Opportunities Key Hubs</span>
+              </div>
+              
               <ul class="hubs-list">
                 <li>
-                  <span class="hub-marker">📍</span>
-                  <div>
+                  <div class="hub-round-thumb" style="background-image: url('institute_bg.png');" aria-hidden="true"></div>
+                  <div class="hub-details-col">
                     <strong>Munich & Stuttgart</strong>
                     <span>Automotive, Hardware & Mechanical Engineering</span>
                   </div>
                 </li>
                 <li>
-                  <span class="hub-marker">📍</span>
-                  <div>
+                  <div class="hub-round-thumb" style="background-image: url('germany_banner.png');" aria-hidden="true"></div>
+                  <div class="hub-details-col">
                     <strong>Frankfurt</strong>
                     <span>Finance, IT & Business Administration</span>
                   </div>
                 </li>
                 <li>
-                  <span class="hub-marker">📍</span>
-                  <div>
+                  <div class="hub-round-thumb" style="background-image: url('germany_hero_visual.png');" aria-hidden="true"></div>
+                  <div class="hub-details-col">
                     <strong>North Rhine-Westphalia & Saxony</strong>
                     <span>Major Healthcare Hubs, Nursing Anerkennung Placements</span>
                   </div>
                 </li>
                 <li>
-                  <span class="hub-marker">📍</span>
-                  <div>
+                  <div class="hub-round-thumb" style="background-image: url('germany_visual.png');" aria-hidden="true"></div>
+                  <div class="hub-details-col">
                     <strong>Berlin</strong>
                     <span>Tech Startups, Creative Industries & Research Degrees</span>
                   </div>
                 </li>
               </ul>
-              <div class="placements-quick-stat">
-                <span class="quick-stat-num">98%</span>
-                <span class="quick-stat-lbl">Visa Approval Success Rate for FÜNF Cohorts</span>
+
+              <!-- Bottom Split Visual Stat Card -->
+              <div class="quick-stat-split-card">
+                <div class="stat-map-mockup" aria-hidden="true">
+                  <img src="germany_roadmap_map.png" alt="Germany Map Placements" />
+                </div>
+                <div class="stat-info-mockup">
+                  <span class="stat-pct">98%</span>
+                  <h4>Visa Approval Success Rate for FÜNF Cohorts</h4>
+                  <div class="commitment-badge">
+                    <span class="badge-check-icon" aria-hidden="true">🛡️</span>
+                    <span>Your Future, Our Commitment</span>
+                  </div>
+                </div>
               </div>
+
             </div>
           </div>
+
         </div>
       </div>
     </section>
 
     <!-- ============================================================
-         SECTION VI: SUCCESS STORIES – "Can people like me achieve this?"
+         SECTION VIII: SUCCESS STORIES
     ============================================================ -->
     <section class="success-stories-section" id="stories" aria-labelledby="stories-heading">
       <div class="section-container">
+        
+        <!-- Redesigned Section Header -->
         <div class="section-intro">
-          <span class="section-eyebrow">Real Outcomes</span>
-          <h2 id="stories-heading" class="section-main-title">Validated Pathways: From our Classrooms to Germany</h2>
+          <div class="success-eyebrow-badge">🎓 Success Stories</div>
+          <h2 id="stories-heading" class="section-main-title">
+            Validated Pathways: From our <span class="highlight-text">Classrooms to Germany</span>
+          </h2>
           <p class="section-subtitle-text">
             Meet the students, nurses, and engineers who trusted FÜNF to guide their career transition.
           </p>
         </div>
 
         <div class="stories-grid-layout">
-          <!-- Story 1 -->
-          <div class="story-card-item">
+          <!-- Story 1: Minu Sebastian -->
+          <div class="story-card-item card-theme-blue">
             <div class="story-header-meta">
-              <div class="story-user-avatar">👩‍⚕️</div>
+              <div class="avatar-ring">
+                <span class="user-emoji">👩‍⚕️</span>
+                <span class="location-dot-indicator"></span>
+              </div>
               <div class="story-user-title">
                 <h3>Minu Sebastian</h3>
-                <span>Registered Nurse • Frankfurt University Hospital</span>
+                <span>Registered Nurse • Frankfurt Hospital</span>
               </div>
+              <div class="outcome-badge">Verified</div>
             </div>
-            <p class="story-body-text">
-              "Starting my B1 classes with FÜNF, I didn't know how to translate my clinical license. FÜNF handled my B2 class prep, sorted my Anerkennung papers, and paired me directly with the hospital interviewer. I'm now working in Frankfurt!"
-            </p>
+            
+            <div class="story-body-content">
+              <span class="quote-mark-icon">“</span>
+              <p class="story-body-text">
+                Starting my B1 classes with FÜNF, I didn't know how to translate my clinical license. FÜNF handled my B2 class prep, sorted my Anerkennung papers, and paired me directly with the hospital interviewer. I'm now working in Frankfurt!
+              </p>
+            </div>
+            
             <div class="story-footer-metric">
-              <span class="outcome-label">Level Achieved:</span>
-              <span class="outcome-value">B2 (Goethe Certified)</span>
+              <span class="outcome-label">Level Achieved</span>
+              <span class="outcome-tag">B2 Goethe</span>
             </div>
           </div>
 
-          <!-- Story 2 -->
-          <div class="story-card-item">
+          <!-- Story 2: Rohan Mehta -->
+          <div class="story-card-item card-theme-teal">
             <div class="story-header-meta">
-              <div class="story-user-avatar">👨‍💻</div>
+              <div class="avatar-ring">
+                <span class="user-emoji">👨‍💻</span>
+                <span class="location-dot-indicator"></span>
+              </div>
               <div class="story-user-title">
                 <h3>Rohan Mehta</h3>
-                <span>Senior Software Engineer • Tech Lead, Berlin</span>
+                <span>Senior Software Engineer • Berlin</span>
               </div>
+              <div class="outcome-badge">Verified</div>
             </div>
-            <p class="story-body-text">
-              "As an engineer, speaking German at a conversational level was vital. FÜNF's speaking sessions gave me conversational confidence, and their visa preparation package made my Blue Card transition absolutely painless. Highly recommended transition partner!"
-            </p>
+            
+            <div class="story-body-content">
+              <span class="quote-mark-icon">“</span>
+              <p class="story-body-text">
+                As an engineer, speaking German at a conversational level was vital. FÜNF's speaking sessions gave me conversational confidence, and their visa preparation package made my Blue Card transition absolutely painless. Highly recommended transition partner!
+              </p>
+            </div>
+            
             <div class="story-footer-metric">
-              <span class="outcome-label">Level Achieved:</span>
-              <span class="outcome-value">B1 (TELC Certified)</span>
+              <span class="outcome-label">Level Achieved</span>
+              <span class="outcome-tag">B1 TELC</span>
             </div>
           </div>
 
-          <!-- Story 3 -->
-          <div class="story-card-item">
+          <!-- Story 3: Shruti Iyer -->
+          <div class="story-card-item card-theme-purple">
             <div class="story-header-meta">
-              <div class="story-user-avatar">🎓</div>
+              <div class="avatar-ring">
+                <span class="user-emoji">🎓</span>
+                <span class="location-dot-indicator"></span>
+              </div>
               <div class="story-user-title">
                 <h3>Shruti Iyer</h3>
-                <span>M.Sc. Automotive Engineering student • TU Munich</span>
+                <span>M.Sc. Student • TU Munich</span>
               </div>
+              <div class="outcome-badge">Verified</div>
             </div>
-            <p class="story-body-text">
-              "Public university applications from India are incredibly competitive. FÜNF guided me on APS certification, formatted my letter of motivation to German requirements, and got me through the C1 exam prep. Studying in Munich with zero tuition!"
-            </p>
+            
+            <div class="story-body-content">
+              <span class="quote-mark-icon">“</span>
+              <p class="story-body-text">
+                Public university applications from India are competitive. FÜNF guided me on APS certification, formatted my letter of motivation to German requirements, and got me through the C1 exam prep. Studying in Munich with zero tuition!
+              </p>
+            </div>
+            
             <div class="story-footer-metric">
-              <span class="outcome-label">Level Achieved:</span>
-              <span class="outcome-value">C1 (TestDaF Cleared)</span>
+              <span class="outcome-label">Level Achieved</span>
+              <span class="outcome-tag">C1 TestDaF</span>
             </div>
           </div>
         </div>
@@ -694,7 +1175,129 @@
     </section>
 
     <!-- ============================================================
-         SECTION VII: CONVERSION CTA – "How do I start?"
+         SECTION IX: FAQ SECTION (Illustration | Accordion Grid Layout)
+    ============================================================ -->
+    <section class="faq-section" id="faq" aria-labelledby="faq-main-heading">
+      <div class="section-container">
+        <div class="section-intro">
+          <span class="section-eyebrow">Got Questions?</span>
+          <h2 id="faq-main-heading" class="section-main-title">Frequently Asked Questions</h2>
+          <p class="section-subtitle-text">Clear, straightforward answers about language levels, batch sizes, visa
+            pathways, and support options.</p>
+        </div>
+
+        <div class="faq-layout-split">
+          <div class="faq-illustration-column">
+            <div class="faq-illustration-card">
+              <!-- Illustration graphic placeholder styled with logo color and blur elements -->
+              <div class="faq-student-avatar">🇩🇪</div>
+              <h4>Have other questions about relocation?</h4>
+              <p>Our academic advisors are available for a 1-on-1 consultation session.</p>
+              <a href="#advisor-form" class="btn btn-outline">Ask an Advisor Now</a>
+            </div>
+          </div>
+
+          <div class="faq-accordion-column">
+            <div class="faq-list">
+              <!-- Item 1 -->
+              <div class="faq-item" data-animate="fade-up">
+                <button class="faq-question" aria-expanded="false">
+                  <span>Do I need any prior German knowledge to enroll?</span>
+                  <span class="faq-icon" aria-hidden="true">+</span>
+                </button>
+                <div class="faq-answer">
+                  <p>No prior knowledge is required for the A1 course. If you already know some German, we conduct a
+                    free level assessment during your demo class to place you in the right batch. We have courses
+                    starting from complete beginners (A1) all the way to C2 mastery level.</p>
+                </div>
+              </div>
+
+              <!-- Item 2 -->
+              <div class="faq-item" data-animate="fade-up">
+                <button class="faq-question" aria-expanded="false">
+                  <span>Are the classes live or pre-recorded?</span>
+                  <span class="faq-icon" aria-hidden="true">+</span>
+                </button>
+                <div class="faq-answer">
+                  <p>All our courses are taught through live, interactive online classes via Zoom or Google Meet. Every
+                    session is also recorded and made available to enrolled students for 6 months, so you can revise at
+                    your own pace and never miss a class.</p>
+                </div>
+              </div>
+
+              <!-- Item 3 -->
+              <div class="faq-item" data-animate="fade-up">
+                <button class="faq-question" aria-expanded="false">
+                  <span>What is the batch size for classes?</span>
+                  <span class="faq-icon" aria-hidden="true">+</span>
+                </button>
+                <div class="faq-answer">
+                  <p>We maintain small batches of a maximum of 3–5 students per class to ensure personalised attention.
+                    This creates an intimate learning environment that makes a dramatic difference to your progress and
+                    speaking confidence.</p>
+                </div>
+              </div>
+
+              <!-- Item 4 -->
+              <div class="faq-item" data-animate="fade-up">
+                <button class="faq-question" aria-expanded="false">
+                  <span>How do I book the free demo class?</span>
+                  <span class="faq-icon" aria-hidden="true">+</span>
+                </button>
+                <div class="faq-answer">
+                  <p>Simply fill out the enquiry form on this page or click any "Book Free Demo" button. A member of our
+                    team will contact you within 24 hours to schedule your demo at a time that suits you. The demo is
+                    completely free — no payment or commitment required.</p>
+                </div>
+              </div>
+
+              <!-- Item 5 -->
+              <div class="faq-item" data-animate="fade-up">
+                <button class="faq-question" aria-expanded="false">
+                  <span>Do you provide Goethe exam registration support?</span>
+                  <span class="faq-icon" aria-hidden="true">+</span>
+                </button>
+                <div class="faq-answer">
+                  <p>Yes, we assist students in finding the right Goethe-Institut examination centre, booking the exam,
+                    and submitting the correct documents. Our exam preparation packages include mock tests that closely
+                    replicate the official Goethe examination format and scoring.</p>
+                </div>
+              </div>
+
+              <!-- Item 6 -->
+              <div class="faq-item" data-animate="fade-up">
+                <button class="faq-question" aria-expanded="false">
+                  <span>What is your course completion certificate worth?</span>
+                  <span class="faq-icon" aria-hidden="true">+</span>
+                </button>
+                <div class="faq-answer">
+                  <p>Our internal FÜNF Bildungsbrücke completion certificate demonstrates your course progress and is a
+                    valuable complement to the official Goethe-Institut certification. The Goethe certificate itself is
+                    internationally recognised and is what you should present for visa, university, and job applications
+                    in German-speaking countries.</p>
+                </div>
+              </div>
+
+              <!-- Item 7 -->
+              <div class="faq-item" data-animate="fade-up">
+                <button class="faq-question" aria-expanded="false">
+                  <span>Can working professionals manage the schedule?</span>
+                  <span class="faq-icon" aria-hidden="true">+</span>
+                </button>
+                <div class="faq-answer">
+                  <p>Absolutely. We offer morning (6:30–8:30 AM), evening (7:00–9:00 PM), and weekend batches
+                    specifically designed for working professionals. You can discuss your preferred schedule during your
+                    free demo and we will match you to the most suitable batch.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         SECTION X: CONVERSION CTA / ADVISOR BOOKING FORM
     ============================================================ -->
     <section class="advisor-booking-section" id="advisor-form" aria-labelledby="form-heading">
       <div class="section-container">
@@ -703,26 +1306,28 @@
             <span class="booking-eyebrow">Your First Action</span>
             <h2 id="form-heading">Start Your Relocation Journey Today</h2>
             <p>
-              Do not guess which visa path, class schedule, or starting level fits your goals. Meet one-on-one with a FÜNF Germany Pathway Advisor to confirm your baseline, schedule, and plan your transition.
+              Do not guess which visa path, class schedule, or starting level fits your goals. Meet one-on-one with a
+              FÜNF Germany Pathway Advisor to confirm your baseline, schedule, and plan your transition.
             </p>
 
             <div class="booking-highlights-list">
               <div class="b-highlight-item">
-                <span class="bh-icon">✓</span>
+                <span class="bh-icon"></span>
                 <div>
                   <strong>Free Language Diagnostic</strong>
                   <span>Evaluate your current fluency band and estimate class duration.</span>
                 </div>
               </div>
               <div class="b-highlight-item">
-                <span class="bh-icon">✓</span>
+                <span class="bh-icon"></span>
                 <div>
                   <strong>Career Relocation Blueprint</strong>
-                  <span>Understand target pathways (Nursing recognition, Engineering placement, student admissions).</span>
+                  <span>Understand target pathways (Nursing recognition, Engineering placement, student
+                    admissions).</span>
                 </div>
               </div>
               <div class="b-highlight-item">
-                <span class="bh-icon">✓</span>
+                <span class="bh-icon"></span>
                 <div>
                   <strong>Bespoke Tuition & Plan Estimate</strong>
                   <span>Clear quotes for target combinations and exam preps.</span>
@@ -737,19 +1342,22 @@
               <form class="consultation-form" id="advisorForm" novalidate>
                 <div class="form-field-group">
                   <label for="adv-name">Full Name <span aria-hidden="true">*</span></label>
-                  <input type="text" id="adv-name" name="name" placeholder="Your full name" required autocomplete="name" />
+                  <input type="text" id="adv-name" name="name" placeholder="Your full name" required
+                    autocomplete="name" />
                   <span class="field-error-msg" id="adv-name-error" role="alert"></span>
                 </div>
-                
+
                 <div class="form-field-group">
                   <label for="adv-email">Email Address <span aria-hidden="true">*</span></label>
-                  <input type="email" id="adv-email" name="email" placeholder="your@email.com" required autocomplete="email" />
+                  <input type="email" id="adv-email" name="email" placeholder="your@email.com" required
+                    autocomplete="email" />
                   <span class="field-error-msg" id="adv-email-error" role="alert"></span>
                 </div>
-                
+
                 <div class="form-field-group">
                   <label for="adv-phone">Phone Number <span aria-hidden="true">*</span></label>
-                  <input type="tel" id="adv-phone" name="phone" placeholder="+91 98765 43210" required autocomplete="tel" />
+                  <input type="tel" id="adv-phone" name="phone" placeholder="+91 98765 43210" required
+                    autocomplete="tel" />
                   <span class="field-error-msg" id="adv-phone-error" role="alert"></span>
                 </div>
 
@@ -757,11 +1365,13 @@
                   <label for="adv-pathway">Target Germany Pathway</label>
                   <select id="adv-pathway" name="pathway">
                     <option value="">Select your objective</option>
+                    <option value="spousal">Spousal / Family Visa (A1)</option>
+                    <option value="a2-conversational">A2 Conversational & Integration (A2)</option>
+                    <option value="ausbildung">Vocational Ausbildung (B1)</option>
                     <option value="nurse">Nursing Placement (B2)</option>
                     <option value="engineer">Engineering / Tech Careers (B1/B2)</option>
                     <option value="student">Higher Education / Student Visa (B1/C1)</option>
-                    <option value="ausbildung">Vocational Ausbildung (B1)</option>
-                    <option value="spousal">Spousal / Family Visa (A1)</option>
+                    <option value="c2-mastery">Bilingual Mastery & Translation (C2)</option>
                   </select>
                 </div>
 
@@ -773,7 +1383,8 @@
                   </svg>
                 </button>
               </form>
-              <p class="form-privacy-note">By submitting, you agree to be contacted by FÜNF Bildungsbrücke regarding pathways.</p>
+              <p class="form-privacy-note">By submitting, you agree to be contacted by FÜNF Bildungsbrücke regarding
+                pathways.</p>
             </div>
           </div>
         </div>
@@ -790,7 +1401,8 @@
       <div class="footer-container">
         <div class="footer-brand">
           <img src="logo.png" alt="FÜNF Bildungsbrücke" class="footer-logo" />
-          <p>Germany's bridge for Indian learners — premium German language education and comprehensive Germany career guidance from certified experts.</p>
+          <p>Germany's bridge for Indian learners — premium German language education and comprehensive Germany career
+            guidance from certified experts.</p>
           <div class="footer-socials">
             <a href="#" class="fsocial" aria-label="Facebook">
               <svg viewBox="0 0 24 24" fill="currentColor">
@@ -806,7 +1418,8 @@
             </a>
             <a href="#" class="fsocial" aria-label="YouTube">
               <svg viewBox="0 0 24 24" fill="currentColor">
-                <path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46a2.78 2.78 0 0 0-1.95 1.96A29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58A2.78 2.78 0 0 0 3.41 19.6C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.95-1.96A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z" />
+                <path
+                  d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46a2.78 2.78 0 0 0-1.95 1.96A29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58A2.78 2.78 0 0 0 3.41 19.6C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.95-1.96A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z" />
                 <polygon points="9.75,15.02 15.5,12 9.75,8.98" fill="white" />
               </svg>
             </a>
@@ -819,7 +1432,8 @@
             </a>
             <a href="#" class="fsocial" aria-label="WhatsApp">
               <svg viewBox="0 0 24 24" fill="currentColor">
-                <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z" />
+                <path
+                  d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z" />
               </svg>
             </a>
           </div>
@@ -890,7 +1504,33 @@
     </svg>
   </button>
 
-  <script src="script.js"></script>
+  <!-- ============================================================
+       SYLLABUS MODAL
+  ============================================================ -->
+  <div class="syllabus-modal" id="syllabusModal" aria-hidden="true" role="dialog"
+    aria-labelledby="syllabus-modal-title">
+    <div class="syllabus-modal-backdrop"></div>
+    <div class="syllabus-modal-container">
+      <button class="syllabus-modal-close" id="closeSyllabusModalBtn" aria-label="Close modal">&times;</button>
+      <div class="syllabus-modal-content-wrapper">
+        <div class="syllabus-modal-header">
+          <span class="syllabus-modal-eyebrow" id="syllabusModalEyebrow">FÜNF German Academy</span>
+          <h2 id="syllabus-modal-title">Course Syllabus</h2>
+          <p id="syllabus-modal-subtitle">Course Syllabus Overview</p>
+        </div>
+
+        <div class="syllabus-modal-body" id="syllabusModalBody">
+          <!-- Dynamic Content -->
+        </div>
+
+        <div class="syllabus-modal-footer">
+          <a href="#advisor-form" class="btn btn-primary" id="syllabusModalCTA">Enroll In Course</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js?v=2"></script>
 </body>
 
 </html>
