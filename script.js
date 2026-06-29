@@ -62,6 +62,11 @@ function initNavbar() {
       hamburger.classList.remove('open');
       navLinks.classList.remove('nav-open');
       hamburger.setAttribute('aria-expanded', 'false');
+      navLinks.querySelectorAll('.nav-item-dropdown').forEach(dropdown => {
+        dropdown.classList.remove('dropdown-open');
+        const toggle = dropdown.querySelector('.dropdown-toggle');
+        if (toggle) toggle.setAttribute('aria-expanded', 'false');
+      });
     };
 
     hamburger.addEventListener('click', (e) => {
@@ -71,8 +76,19 @@ function initNavbar() {
 
     // Close menu when navigation link is clicked
     navLinks.querySelectorAll('a').forEach(link => {
-      link.addEventListener('click', () => {
-        closeMenu();
+      link.addEventListener('click', (e) => {
+        if (link.classList.contains('dropdown-toggle')) {
+          e.preventDefault();
+          e.stopPropagation();
+          const parent = link.closest('.nav-item-dropdown');
+          if (parent) {
+            parent.classList.toggle('dropdown-open');
+            const isOpen = parent.classList.contains('dropdown-open');
+            link.setAttribute('aria-expanded', String(isOpen));
+          }
+        } else {
+          closeMenu();
+        }
       });
     });
 
