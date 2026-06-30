@@ -348,7 +348,8 @@ address {
   display: flex;
   align-items: center;
   gap: 2rem;
-  position: relative; /* Support absolute centering of links on desktop */
+  position: relative;
+  /* Support absolute centering of links on desktop */
 }
 
 .nav-logo {
@@ -377,7 +378,8 @@ address {
 
 @media (min-width: 1025px) {
   .nav-links {
-    gap: clamp(0.5rem, 1.5vw, 1.25rem); /* Responsive premium gap on desktop to prevent overlap */
+    gap: clamp(0.5rem, 1.5vw, 1.25rem);
+    /* Responsive premium gap on desktop to prevent overlap */
   }
 }
 
@@ -926,8 +928,8 @@ address {
   -webkit-backdrop-filter: blur(20px);
   border-radius: 2rem;
   padding: 1.85rem;
-  box-shadow: 
-    0 30px 60px rgba(0, 0, 0, 0.25), 
+  box-shadow:
+    0 30px 60px rgba(0, 0, 0, 0.25),
     0 0 40px rgba(0, 170, 221, 0.08),
     inset 0 1px 0 rgba(255, 255, 255, 0.45);
   border: 1px solid rgba(255, 255, 255, 0.45);
@@ -5918,9 +5920,11 @@ address {
   0% {
     transform: translateY(0px) scale(1);
   }
+
   50% {
     transform: translateY(-20px) scale(1.05);
   }
+
   100% {
     transform: translateY(0px) scale(1);
   }

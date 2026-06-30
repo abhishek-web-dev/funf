@@ -851,15 +851,15 @@
 }
 
 .gradient-b2 {
-  background: linear-gradient(135deg, rgba(11, 29, 79, 0.85) 0%, rgba(0, 160, 207, 0.45) 100%), url('germany_roadmap_map.png') no-repeat center center / cover;
+  background: linear-gradient(135deg, rgba(11, 29, 79, 0.3) 0%, rgba(0, 160, 207, 0.3) 100%), url('B2_German_Course.png') no-repeat center center / cover;
 }
 
 .gradient-c1 {
-  background: linear-gradient(135deg, rgba(7, 21, 64, 0.85) 0%, rgba(0, 136, 187, 0.45) 100%), url('germany_hero_visual.png') no-repeat center center / cover;
+  background: linear-gradient(135deg, rgba(7, 21, 64, 0.3) 0%, rgba(0, 136, 187, 0.3) 100%), url('C1_German_Course.png') no-repeat center center / cover;
 }
 
 .gradient-c2 {
-  background: linear-gradient(135deg, rgba(5, 14, 43, 0.85) 0%, rgba(0, 114, 158, 0.45) 100%), url('germany_banner.png') no-repeat center center / cover;
+  background: linear-gradient(135deg, rgba(5, 14, 43, 0.3) 0%, rgba(0, 114, 158, 0.3) 100%), url('C2_German_Course.png') no-repeat center center / cover;
 }
 
 .card-tag {
@@ -1031,7 +1031,7 @@
    4. PREMIUM STATISTICS STRIP
    ================================================================ */
 .premium-stats-section {
-  padding: 5rem 0;
+  padding: 1rem 0;
   background: var(--surface);
   position: relative;
   z-index: 3;
