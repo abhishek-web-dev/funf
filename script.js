@@ -126,7 +126,7 @@ function initCounters() {
     const updateCount = (currentTime) => {
       const elapsed = currentTime - startTime;
       const progress = Math.min(elapsed / duration, 1);
-      
+
       // Easing function: easeOutQuad
       const easeProgress = progress * (2 - progress);
       const currentValue = easeProgress * target;
@@ -201,7 +201,7 @@ function initScrollReveal() {
  */
 function initFaqAccordion() {
   const faqQuestions = document.querySelectorAll('.faq-question');
-  
+
   faqQuestions.forEach(btn => {
     btn.addEventListener('click', () => {
       const item = btn.closest('.faq-item');
@@ -212,7 +212,7 @@ function initFaqAccordion() {
       document.querySelectorAll('.faq-item').forEach(otherItem => {
         const otherBtn = otherItem.querySelector('.faq-question');
         const otherAnswer = otherItem.querySelector('.faq-answer');
-        
+
         otherBtn.setAttribute('aria-expanded', 'false');
         otherAnswer.classList.remove('open');
         otherAnswer.style.maxHeight = null;
@@ -322,7 +322,7 @@ function initBookingForm() {
 
       // Hide Form and show Form Success message (styled using existing css classes)
       form.style.display = 'none';
-      
+
       const formCard = form.closest('.demo-form-card') || form.closest('.hero-form-card');
       const titleElement = formCard.querySelector('h3') || formCard.querySelector('.form-card-header');
       if (titleElement) titleElement.style.display = 'none';
@@ -348,7 +348,7 @@ function initBookingForm() {
   });
 
   function escapeHTML(str) {
-    return str.replace(/[&<>'"]/g, 
+    return str.replace(/[&<>'"]/g,
       tag => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', "'": '&#39;', '"': '&quot;' }[tag] || tag)
     );
   }
@@ -498,7 +498,7 @@ function initAdvisorForm() {
   });
 
   function escapeHTML(str) {
-    return str.replace(/[&<>'"]/g, 
+    return str.replace(/[&<>'"]/g,
       tag => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', "'": '&#39;', '"': '&quot;' }[tag] || tag)
     );
   }
@@ -841,7 +841,7 @@ function initSyllabusModal() {
   const closeBtn = document.getElementById('closeSyllabusModalBtn');
   const backdrop = modal ? modal.querySelector('.syllabus-modal-backdrop') : null;
   const syllabusButtons = document.querySelectorAll('.view-syllabus-btn');
-  
+
   if (!modal || syllabusButtons.length === 0) return;
 
   const modalTitle = document.getElementById('syllabus-modal-title');
@@ -857,7 +857,7 @@ function initSyllabusModal() {
     if (modalTitle) modalTitle.textContent = data.title;
     if (modalSubtitle) modalSubtitle.textContent = data.subtitle;
     if (modalBody) modalBody.innerHTML = data.content;
-    
+
     if (modalCTA) {
       modalCTA.textContent = data.ctaText;
       modalCTA.setAttribute('href', '#advisor-form');
@@ -944,7 +944,7 @@ function selectTargetPathway(level) {
   const targetValue = mapping[level.toLowerCase()];
   if (targetValue) {
     selectEl.value = targetValue;
-    
+
     // Smooth scroll to advisor form
     const formSection = document.getElementById('advisor-form');
     if (formSection) {
@@ -953,7 +953,7 @@ function selectTargetPathway(level) {
 
     // Highlight the selection dropdown
     selectEl.classList.add('pulse-highlight');
-    
+
     // Add micro-feedback text
     let feedback = document.getElementById('pathway-feedback-msg');
     if (!feedback) {
@@ -966,7 +966,7 @@ function selectTargetPathway(level) {
       feedback.style.marginTop = '0.5rem';
       selectEl.parentNode.appendChild(feedback);
     }
-    
+
     feedback.textContent = `✓ Pre-selected option automatically based on your ${level.toUpperCase()} Course interest!`;
 
     // Remove the highlight animation after 2.5 seconds
