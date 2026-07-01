@@ -4442,10 +4442,9 @@ address {
 }
 
 .footer-brand .footer-logo {
-  height: 56px;
+  height: 96px;
   width: auto;
-  margin-bottom: 1.25rem;
-  filter: brightness(0) invert(1);
+  margin-bottom: .5rem;
 }
 
 .footer-brand p {
