@@ -19,6 +19,622 @@
     href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700&family=Caveat:wght@600;700&display=swap"
     rel="stylesheet" />
   <link rel="stylesheet" href="style.css?v=6" />
+  <style>
+    /* Custom Page-Specific Styles for Program Pricing & Offerings */
+    .prog-details-sec {
+      padding: var(--sp-xl) 0;
+      background: #f8fafc;
+      position: relative;
+    }
+    
+    .prog-details-container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+    }
+
+    /* Badge & Headers */
+    .header-badge {
+      display: inline-flex;
+      align-items: center;
+      padding: 0.35rem 0.85rem;
+      background: rgba(0, 170, 221, 0.06);
+      border: 1px solid rgba(0, 170, 221, 0.15);
+      border-radius: 50px;
+      color: var(--cyan);
+      font-weight: 700;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 1rem;
+    }
+
+    /* Section 1: Why Choose Fünf Banner Card */
+    .overview-banner-card {
+      background: var(--white);
+      border: 1px solid rgba(26, 47, 110, 0.06);
+      border-radius: var(--r-xl);
+      padding: 2.5rem;
+      box-shadow: 0 10px 30px rgba(26, 47, 110, 0.03);
+      display: flex;
+      align-items: center;
+      gap: 2.5rem;
+    }
+
+    @media (max-width: 768px) {
+      .overview-banner-card {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        padding: 2rem;
+        gap: 1.5rem;
+      }
+    }
+
+    .overview-icon-wrap {
+      flex-shrink: 0;
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      background: rgba(0, 170, 221, 0.05);
+      border: 1px solid rgba(0, 170, 221, 0.1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+
+    .overview-icon-wrap::before {
+      content: '';
+      position: absolute;
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      background: rgba(0, 170, 221, 0.08);
+    }
+
+    .overview-icon-wrap svg {
+      width: 44px;
+      height: 44px;
+      color: var(--navy);
+      z-index: 2;
+    }
+
+    .overview-content-wrap {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .overview-content-wrap h4 {
+      font-size: 0.875rem;
+      font-weight: 800;
+      color: var(--navy);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin: 0;
+    }
+
+    .overview-content-wrap p {
+      font-size: 0.95rem;
+      line-height: 1.6;
+      color: var(--text-body);
+      margin: 0;
+    }
+
+    /* Cards Grid */
+    .row-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 2rem;
+    }
+
+    @media (max-width: 991px) {
+      .row-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+      }
+    }
+
+    /* Details Card */
+    .card-detail {
+      background: var(--white);
+      border: 1px solid rgba(26, 47, 110, 0.06);
+      border-radius: var(--r-xl);
+      padding: 2.25rem;
+      box-shadow: 0 10px 30px rgba(26, 47, 110, 0.03);
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+      position: relative;
+      overflow: hidden;
+      transition: all var(--dur-med) var(--ease);
+    }
+
+    .card-detail:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 15px 35px rgba(26, 47, 110, 0.06);
+      border-color: rgba(0, 170, 221, 0.2);
+    }
+
+    /* Card Header */
+    .card-header-flex {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+    }
+
+    .header-left-badge {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .badge-icon-tag {
+      padding: 0.35rem 0.65rem;
+      background: var(--navy);
+      color: var(--white);
+      border-radius: 4px;
+      font-weight: 800;
+      font-size: 0.75rem;
+      letter-spacing: 0.05em;
+    }
+
+    .card-masters .badge-icon-tag {
+      background: var(--cyan);
+    }
+
+    .badge-icon-tag-round {
+      width: 32px;
+      height: 32px;
+      background: rgba(0, 170, 221, 0.08);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--cyan);
+    }
+
+    .card-ausbildung .badge-icon-tag-round {
+      background: rgba(26, 47, 110, 0.06);
+      color: var(--navy);
+    }
+
+    .card-header-title {
+      font-size: 1.15rem;
+      font-weight: 800;
+      color: var(--navy);
+    }
+
+    .header-right-circle {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--navy), rgba(26, 47, 110, 0.8));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--white);
+    }
+
+    .card-masters .header-right-circle {
+      background: linear-gradient(135deg, var(--cyan), rgba(0, 170, 221, 0.8));
+    }
+
+    .header-right-circle svg {
+      width: 24px;
+      height: 24px;
+      color: var(--white);
+    }
+
+    /* Price Section */
+    .price-value-large {
+      font-size: 2.75rem;
+      font-weight: 800;
+      color: var(--navy);
+      font-family: var(--font-display);
+      line-height: 1.1;
+    }
+
+    .price-sub-label {
+      font-size: 0.875rem;
+      color: var(--text-body);
+      font-weight: 600;
+      margin-top: 0.25rem;
+    }
+
+    .price-sub-label span {
+      color: var(--text-muted);
+      font-weight: 400;
+    }
+
+    .divider-line {
+      width: 100%;
+      height: 1px;
+      background: rgba(26, 47, 110, 0.08);
+      margin: 0.5rem 0;
+    }
+
+    .details-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+
+    .details-list li {
+      position: relative;
+      padding-left: 1.5rem;
+      font-size: 0.9rem;
+      line-height: 1.5;
+      color: var(--text-body);
+    }
+
+    .details-list li::before {
+      content: '✓';
+      position: absolute;
+      left: 0;
+      top: 0;
+      color: var(--cyan);
+      font-weight: 800;
+    }
+
+    /* Active Referral Box */
+    .referral-box-cyan {
+      background: rgba(0, 170, 221, 0.04);
+      border: 1px solid rgba(0, 170, 221, 0.12);
+      border-radius: var(--r-md);
+      padding: 1.25rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      margin-top: auto;
+    }
+
+    .referral-title-flex {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-weight: 700;
+      font-size: 0.9rem;
+      color: var(--navy);
+    }
+
+    .referral-title-flex svg {
+      width: 18px;
+      height: 18px;
+      color: var(--cyan);
+    }
+
+    .referral-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .referral-list li {
+      position: relative;
+      padding-left: 1.25rem;
+      font-size: 0.825rem;
+      line-height: 1.4;
+      color: var(--text-body);
+    }
+
+    .referral-list li::before {
+      content: '✓';
+      position: absolute;
+      left: 0;
+      top: 0;
+      color: var(--cyan);
+      font-weight: 800;
+    }
+
+    /* Course Pill List inside Card */
+    .course-pill-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0.65rem;
+    }
+
+    .course-pill-row {
+      background: rgba(26, 47, 110, 0.02);
+      border: 1px solid rgba(26, 47, 110, 0.05);
+      border-radius: 50px;
+      padding: 0.5rem 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      transition: all var(--dur-fast) var(--ease);
+    }
+
+    .course-pill-row:hover {
+      background: rgba(0, 170, 221, 0.06);
+      border-color: rgba(0, 170, 221, 0.2);
+      transform: translateX(3px);
+    }
+
+    .course-pill-icon-wrap {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: rgba(26, 47, 110, 0.08);
+      color: var(--navy);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.95rem;
+      flex-shrink: 0;
+    }
+
+    .course-pill-name-eng {
+      font-weight: 700;
+      font-size: 0.875rem;
+      color: var(--navy);
+    }
+
+    .course-pill-name-ger {
+      font-size: 0.8125rem;
+      color: var(--text-muted);
+      font-style: italic;
+      margin-left: auto;
+    }
+
+    /* Services Grid inside Card */
+    .services-grid-wrap {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 0.75rem;
+    }
+
+    @media (max-width: 480px) {
+      .services-grid-wrap {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .service-grid-card {
+      background: rgba(0, 170, 221, 0.02);
+      border: 1px solid rgba(0, 170, 221, 0.05);
+      border-radius: 8px;
+      padding: 0.75rem 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      transition: all var(--dur-fast) var(--ease);
+    }
+
+    .service-grid-card:hover {
+      background: rgba(0, 170, 221, 0.06);
+      border-color: rgba(0, 170, 221, 0.15);
+      transform: translateY(-2px);
+    }
+
+    .service-grid-icon-circle {
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background: rgba(0, 170, 221, 0.08);
+      color: var(--cyan);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.75rem;
+      flex-shrink: 0;
+      font-weight: 800;
+    }
+
+    .service-grid-title {
+      font-weight: 700;
+      font-size: 0.8125rem;
+      color: var(--navy);
+      line-height: 1.3;
+    }
+
+    /* GST Note Callout */
+    .note-callout-box {
+      background: rgba(26, 47, 110, 0.02);
+      border: 1px solid rgba(26, 47, 110, 0.06);
+      border-left: 4px solid var(--navy);
+      border-radius: var(--r-md);
+      padding: 1rem 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      box-shadow: 0 4px 15px rgba(26, 47, 110, 0.02);
+    }
+
+    .note-callout-box svg {
+      width: 22px;
+      height: 22px;
+      color: var(--navy);
+      flex-shrink: 0;
+    }
+
+    .note-callout-box p {
+      font-size: 0.875rem;
+      color: var(--text-body);
+      margin: 0;
+      font-weight: 500;
+    }
+
+    /* Mind Map Fee Section styling */
+    .fee-map-sec {
+      padding: var(--sp-xl) 0;
+      background: #ffffff;
+      position: relative;
+      overflow: hidden;
+      border-bottom: 1px solid rgba(26, 47, 110, 0.05);
+    }
+
+    .fee-map-container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+      position: relative;
+    }
+
+    .fee-map-wrapper {
+      position: relative;
+      min-height: 520px;
+      margin-top: 3rem;
+    }
+
+    /* Central Node */
+    .fee-center-node {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 180px;
+      height: 120px;
+      background: linear-gradient(135deg, var(--navy), rgba(26, 47, 110, 0.95));
+      border-radius: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: var(--white);
+      font-weight: 800;
+      font-size: 1.15rem;
+      letter-spacing: 0.05em;
+      box-shadow: 0 10px 30px rgba(26, 47, 110, 0.25);
+      z-index: 10;
+      border: 3px solid rgba(0, 170, 221, 0.3);
+    }
+
+    .fee-center-node::after {
+      content: '';
+      position: absolute;
+      width: 220px;
+      height: 160px;
+      border-radius: 60px;
+      border: 1px dashed rgba(0, 170, 221, 0.2);
+      pointer-events: none;
+      animation: spin 20s linear infinite;
+    }
+
+    @keyframes spin {
+      100% { transform: rotate(360deg); }
+    }
+
+    /* Surrounding Cards */
+    .fee-node-card {
+      position: absolute;
+      background: var(--white);
+      border: 1px solid rgba(26, 47, 110, 0.06);
+      border-radius: var(--r-md);
+      padding: 1.25rem 1.5rem;
+      box-shadow: 0 6px 20px rgba(26, 47, 110, 0.02);
+      width: 240px;
+      z-index: 5;
+      transition: all var(--dur-med) var(--ease);
+      border-left: 4px solid var(--cyan);
+    }
+
+    .fee-node-card:hover {
+      transform: translateY(-3px) scale(1.02);
+      box-shadow: 0 10px 25px rgba(26, 47, 110, 0.05);
+      border-color: rgba(0, 170, 221, 0.2);
+      border-left-color: var(--navy);
+    }
+
+    /* Positions for 5 cards on desktop */
+    .card-pos-1 { top: 8%; left: 8%; } /* Ausbildung (Top-Left) */
+    .card-pos-2 { top: 8%; right: 8%; } /* Nursing (Top-Right) */
+    .card-pos-3 { top: 45%; right: 5%; } /* Bachelors (Middle-Right) */
+    .card-pos-4 { bottom: 8%; right: 8%; } /* Masters (Bottom-Right) */
+    .card-pos-5 { bottom: 8%; left: 8%; } /* German Language (Bottom-Left) */
+
+    .fee-node-card h4 {
+      font-size: 0.95rem;
+      font-weight: 800;
+      color: var(--navy);
+      margin-bottom: 0.35rem;
+      text-transform: capitalize;
+    }
+
+    .fee-node-card .price {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      font-family: var(--font-display);
+    }
+
+    .fee-node-card .note {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      margin-top: 0.25rem;
+      font-style: italic;
+    }
+
+    /* SVG connections style */
+    .fee-svg-connections {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    .fee-svg-connections path {
+      stroke: rgba(0, 170, 221, 0.25);
+      stroke-width: 2.5;
+      stroke-dasharray: 6 4;
+      fill: none;
+    }
+
+    /* Responsive adjustments for Mind Map */
+    @media (max-width: 991px) {
+      .fee-map-wrapper {
+        min-height: auto;
+        display: flex;
+        flex-direction: column;
+        gap: 1.25rem;
+        align-items: center;
+      }
+
+      .fee-svg-connections, .fee-center-node {
+        display: none;
+      }
+
+      .fee-node-card {
+        position: static;
+        width: 100%;
+        max-width: 480px;
+      }
+
+      /* Mobile center header for mindmap content */
+      .mobile-fee-hub-header {
+        display: block !important;
+        background: var(--navy);
+        color: var(--white);
+        padding: 1rem;
+        border-radius: var(--r-md);
+        font-weight: 800;
+        text-align: center;
+        width: 100%;
+        max-width: 480px;
+        margin-bottom: 0.5rem;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+      }
+    }
+
+    .mobile-fee-hub-header {
+      display: none;
+    }
+  </style>
 </head>
 
 <body>
@@ -394,6 +1010,306 @@
             <p>Syllabus checks for nurse recognition, engineering resume updates, and interview prep.</p>
           </div>
         </article>
+
+      </div>
+    </section>
+
+    <!-- ============================================================
+         PROGRAM FEES STRUCTURE (MIND MAP)
+    ============================================================ -->
+    <section class="fee-map-sec" id="program-fee-structure">
+      <div class="fee-map-container">
+        
+        <div class="prog-section-header" data-animate="fade-up" style="text-align: center; margin-bottom: 2rem;">
+          <span class="header-badge" aria-hidden="true">Interactive Directory</span>
+          <h2 class="prog-title" style="font-size: 2.25rem; font-weight: 800; color: var(--navy); margin-bottom: 0.75rem;">Fünf Fees Structure Map</h2>
+          <p class="prog-desc" style="font-size: 1rem; color: var(--text-muted); max-width: 600px; margin: 0 auto;">Visual breakdown of standard tuition fees, discounts, and level inclusions.</p>
+        </div>
+
+        <div class="fee-map-wrapper">
+          
+          <!-- SVG Connections for Desktop -->
+          <svg class="fee-svg-connections" viewBox="0 0 1000 500" aria-hidden="true">
+            <defs>
+              <marker id="arrow" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                <path d="M 0 0 L 10 5 L 0 10 z" fill="rgba(0, 170, 221, 0.4)"/>
+              </marker>
+            </defs>
+            <!-- Paths from Center (500,250) to Cards -->
+            <path d="M 450,220 Q 320,180 220,130" marker-end="url(#arrow)"/>
+            <path d="M 550,220 Q 680,180 780,130" marker-end="url(#arrow)"/>
+            <path d="M 580,250 H 800" marker-end="url(#arrow)"/>
+            <path d="M 550,280 Q 680,320 780,370" marker-end="url(#arrow)"/>
+            <path d="M 450,280 Q 320,320 220,370" marker-end="url(#arrow)"/>
+          </svg>
+
+          <!-- Central Hub -->
+          <div class="fee-center-node">
+            <span>FEES<br>STRUCTURE</span>
+          </div>
+
+          <!-- Mobile Header (fallback) -->
+          <div class="mobile-fee-hub-header">FEES STRUCTURE</div>
+
+          <!-- Card 1: Ausbildung (Top-Left) -->
+          <div class="fee-node-card card-pos-1" data-animate="fade-up">
+            <h4>Ausbildung</h4>
+            <div class="price">Rs. 3,25,000 + GST</div>
+            <div class="note">Rs. 50,000 off for our students</div>
+          </div>
+
+          <!-- Card 2: Nursing (Top-Right) -->
+          <div class="fee-node-card card-pos-2" data-animate="fade-up">
+            <h4>Nursing</h4>
+            <div class="price">Rs. 3,50,000 + GST</div>
+          </div>
+
+          <!-- Card 3: Bachelors (Middle-Right) -->
+          <div class="fee-node-card card-pos-3" data-animate="fade-up">
+            <h4>Bachelors</h4>
+            <div class="price">Rs. 1,75,000 + GST</div>
+          </div>
+
+          <!-- Card 4: Masters (Bottom-Right) -->
+          <div class="fee-node-card card-pos-4" data-animate="fade-up">
+            <h4>Masters</h4>
+            <div class="price">Rs. 1,95,000 + GST</div>
+          </div>
+
+          <!-- Card 5: German Language (Bottom-Left) -->
+          <div class="fee-node-card card-pos-5" data-animate="fade-up">
+            <h4>German Language</h4>
+            <div class="price">Rs. 75,000 + GST</div>
+            <div class="note">includes all 4 levels</div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ============================================================
+         PROGRAM PRICING, COURSES & SERVICES SECTION
+    ============================================================ -->
+    <section class="prog-details-sec" id="program-pricing-details">
+      <div class="prog-details-container">
+        
+        <div class="prog-section-header" data-animate="fade-up" style="text-align: center; margin-bottom: 3rem;">
+          <span class="header-badge" aria-hidden="true">Transparent Offerings</span>
+          <h2 class="prog-title" style="font-size: 2.25rem; font-weight: 800; color: var(--navy); margin-bottom: 0.75rem;">Program Fees, Courses &amp; Services</h2>
+          <p class="prog-desc" style="font-size: 1rem; color: var(--text-muted); max-width: 600px; margin: 0 auto;">Direct placement pathways with zero agent middlemen and complete document validation.</p>
+        </div>
+
+        <!-- 1. WHY CHOOSE FÜNF BANNER -->
+        <div class="overview-banner-card" data-animate="fade-up">
+          <div class="overview-icon-wrap">
+            <svg fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
+            </svg>
+          </div>
+          <div class="overview-content-wrap">
+            <h4>Why Choose Fünf?</h4>
+            <p>
+              Fünf is an education and career consultancy that helps students pursue Ausbildung, nursing, bachelor's, and master's programs. We work directly with employers and institutions without any middlemen or agents, making the process faster, more transparent, and more reliable. Our fees are lower than most consultancies, and we provide honest guidance throughout the journey. We do not make false promises. We deliver what we promise and support students every step of the way.
+            </p>
+          </div>
+        </div>
+
+        <!-- 2. AUSBILDUNG & MASTERS PRICING CARDS -->
+        <div class="row-grid">
+          
+          <!-- Ausbildung Card -->
+          <div class="card-detail card-ausbildung" data-animate="fade-up" data-delay="0">
+            <div class="card-header-flex">
+              <div class="header-left-badge">
+                <span class="badge-icon-tag">DE</span>
+                <span class="card-header-title">For Ausbildung</span>
+              </div>
+              <div class="header-right-circle">
+                <svg fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24" aria-hidden="true">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M12 14l9-5-9-5-9 5 9 5zm0 0l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14zm-4 6v-7.5l4-2.222"></path>
+                </svg>
+              </div>
+            </div>
+            
+            <div class="price-value-large">₹2,75,000</div>
+            <div class="price-sub-label">For FÜNF Academy Students <span style="display:block; font-size:0.8rem; margin-top:0.15rem;">(Save ₹50,000)</span></div>
+            
+            <div class="divider-line"></div>
+            
+            <p>
+              Standard fee is <strong>₹3,25,000</strong>. Candidates enrolled in our Academy courses receive a special discount, reducing the net fee to <strong>₹2,75,000</strong>.
+            </p>
+            
+            <div class="referral-box-cyan">
+              <div class="referral-title-flex">
+                <svg fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" aria-hidden="true">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M12 8v13m0-13V6a2 2 0 112 2h-2zm0 0V6a2 2 0 10-2 2h2zm0 0h4m-4 0H8m12 0v13H4V8h16z"></path>
+                </svg>
+                <span>Active Referral Program:</span>
+              </div>
+              <ul class="referral-list">
+                <li>Referred candidate receives <strong>₹10,000</strong> discount.</li>
+                <li>Referring student earns <strong>₹5,000</strong> discount/reward.</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Masters Card -->
+          <div class="card-detail card-masters" data-animate="fade-up" data-delay="100">
+            <div class="card-header-flex">
+              <div class="header-left-badge">
+                <span class="badge-icon-tag-round">
+                  <svg fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" style="width: 16px; height: 16px;" aria-hidden="true">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 14l9-5-9-5-9 5 9 5zm0 0l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14zm-4 6v-7.5l4-2.222"></path>
+                  </svg>
+                </span>
+                <span class="card-header-title">For Masters</span>
+              </div>
+            </div>
+            
+            <div class="price-value-large">₹1,95,000</div>
+            <div class="price-sub-label">Complete Master's Admission Package</div>
+            
+            <div class="divider-line"></div>
+            
+            <p>
+              We charge a transparent flat fee of <strong>₹1,95,000</strong> for our comprehensive Master's admission services with full advisory coverage.
+            </p>
+            
+            <ul class="details-list">
+              <li>Includes application processing to a minimum of <strong>20 universities</strong> of your choice.</li>
+              <li>End-to-end support covering university selection matching your academic profile.</li>
+              <li>Document preparation guidance, direct admission assistance, and visa approval checklists.</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- 3. AUSBILDUNG COURSES & SERVICES WE PROVIDE -->
+        <div class="row-grid">
+          
+          <!-- Ausbildung Courses -->
+          <div class="card-detail card-ausbildung" data-animate="fade-up" data-delay="0">
+            <div class="card-header-flex">
+              <div class="header-left-badge">
+                <span class="badge-icon-tag-round">
+                  <svg fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" style="width: 16px; height: 16px;" aria-hidden="true">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.168.477 4 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4 1.253"></path>
+                  </svg>
+                </span>
+                <span class="card-header-title">Ausbildung Courses</span>
+              </div>
+            </div>
+            
+            <p style="font-size: 0.9rem; color: var(--text-body);">Explore paid vocational training pathways available in top German industries:</p>
+            
+            <div class="course-pill-list">
+              <div class="course-pill-row">
+                <div class="course-pill-icon-wrap">🩺</div>
+                <span class="course-pill-name-eng">Nursing</span>
+                <span class="course-pill-name-ger">Pflegefachmann / -frau</span>
+              </div>
+              <div class="course-pill-row">
+                <div class="course-pill-icon-wrap">⚙️</div>
+                <span class="course-pill-name-eng">Mechatronics</span>
+                <span class="course-pill-name-ger">Mechatroniker/in</span>
+              </div>
+              <div class="course-pill-row">
+                <div class="course-pill-icon-wrap">💻</div>
+                <span class="course-pill-name-eng">IT Specialist</span>
+                <span class="course-pill-name-ger">Fachinformatiker/in</span>
+              </div>
+              <div class="course-pill-row">
+                <div class="course-pill-icon-wrap">⚕️</div>
+                <span class="course-pill-name-eng">Medical Assistant</span>
+                <span class="course-pill-name-ger">Medizinische/r Fachangestellte/r</span>
+              </div>
+              <div class="course-pill-row">
+                <div class="course-pill-icon-wrap">🦷</div>
+                <span class="course-pill-name-eng">Dental Assistant</span>
+                <span class="course-pill-name-ger">Zahnmedizinische/r Fachangestellte/r</span>
+              </div>
+              <div class="course-pill-row">
+                <div class="course-pill-icon-wrap">📦</div>
+                <span class="course-pill-name-eng">Logistics Specialist</span>
+                <span class="course-pill-name-ger">Fachkraft für Lagerlogistik</span>
+              </div>
+              <div class="course-pill-row">
+                <div class="course-pill-icon-wrap">🍳</div>
+                <span class="course-pill-name-eng">Chef / Cook</span>
+                <span class="course-pill-name-ger">Koch/Köchin</span>
+              </div>
+              <div class="course-pill-row">
+                <div class="course-pill-icon-wrap">🏨</div>
+                <span class="course-pill-name-eng">Hotel Specialist</span>
+                <span class="course-pill-name-ger">Hotelfachmann / -frau</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Services We Provide -->
+          <div class="card-detail card-masters" data-animate="fade-up" data-delay="100">
+            <div class="card-header-flex">
+              <div class="header-left-badge">
+                <span class="badge-icon-tag-round" style="background: rgba(0, 170, 221, 0.08); color: var(--cyan);">
+                  <svg fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" style="width: 16px; height: 16px;" aria-hidden="true">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                  </svg>
+                </span>
+                <span class="card-header-title">Services We Provide</span>
+              </div>
+            </div>
+            
+            <p style="font-size: 0.9rem; color: var(--text-body);">Complete regulatory and relocation support checklist included in all packages:</p>
+            
+            <div class="services-grid-wrap">
+              <div class="service-grid-card">
+                <div class="service-grid-icon-circle">✓</div>
+                <span class="service-grid-title">VFS Appointment Booking</span>
+              </div>
+              <div class="service-grid-card">
+                <div class="service-grid-icon-circle">✓</div>
+                <span class="service-grid-title">Consulate Interview Prep</span>
+              </div>
+              <div class="service-grid-card">
+                <div class="service-grid-icon-circle">✓</div>
+                <span class="service-grid-title">APS Certificate Support</span>
+              </div>
+              <div class="service-grid-card">
+                <div class="service-grid-icon-circle">✓</div>
+                <span class="service-grid-title">Visa Processing Support</span>
+              </div>
+              <div class="service-grid-card">
+                <div class="service-grid-icon-circle">✓</div>
+                <span class="service-grid-title">Accommodation Search</span>
+              </div>
+              <div class="service-grid-card">
+                <div class="service-grid-icon-circle">✓</div>
+                <span class="service-grid-title">German Health Insurance</span>
+              </div>
+              <div class="service-grid-card">
+                <div class="service-grid-icon-circle">✓</div>
+                <span class="service-grid-title">SOP Writing &amp; Review</span>
+              </div>
+              <div class="service-grid-card">
+                <div class="service-grid-icon-circle">✓</div>
+                <span class="service-grid-title">Professional Cover Letters</span>
+              </div>
+              <div class="service-grid-card" style="grid-column: span 2;">
+                <div class="service-grid-icon-circle">✓</div>
+                <span class="service-grid-title">Translations &amp; Legalization</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 4. NOTE CALLOUT -->
+        <div class="note-callout-box" data-animate="fade-up">
+          <svg fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
+          </svg>
+          <p><strong>Note:</strong> The above fee is exclusive of GST. GST will be charged extra as per applicable government norms.</p>
+        </div>
 
       </div>
     </section>

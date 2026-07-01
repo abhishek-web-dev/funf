@@ -69,7 +69,7 @@
       <div class="footer-top">
         <div class="footer-container">
           <div class="footer-brand">
-            <img src="images/logo.png" alt="FÜNF Bildungsbrücke" class="footer-logo" />
+            <img src="images/logo-white.png" alt="FÜNF Bildungsbrücke" class="footer-logo" />
             <p>Germany's bridge for Indian learners — premium German language education and comprehensive Germany career
               guidance from certified experts.</p>
             <div class="footer-socials">
